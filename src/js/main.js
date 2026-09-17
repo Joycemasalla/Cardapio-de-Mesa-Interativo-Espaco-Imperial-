@@ -4,26 +4,23 @@ import { ICONS } from './components/icons.js';
 
 const pagesViewport = document.getElementById('pagesViewport');
 const catnavEl = document.getElementById('catnav');
-const dotsEl = document.getElementById('pageDots');
+const pageNumEl = document.getElementById('pageNum');
+const topProgressBar = document.getElementById('topProgressBar');
 
-// Build pages + TOC pills + dots
+// Build pages + TOC pills
 menuData.forEach((cat, i) => {
-  pagesViewport.innerHTML += renderCategory(cat);
+  // Pass index so we can number the chapters
+  pagesViewport.innerHTML += renderCategory(cat, i + 1);
 
   const pill = document.createElement('button');
   pill.className = 'cat-pill' + (i === 0 ? ' active' : '');
   pill.innerHTML = (ICONS[cat.icon] || '') + cat.navLabel;
   pill.onclick = () => turnTo(i);
   catnavEl.appendChild(pill);
-
-  const dot = document.createElement('span');
-  dot.className = 'page-dot' + (i === 0 ? ' active' : '');
-  dotsEl.appendChild(dot);
 });
 
 const pages = menuData.map(c => document.getElementById(c.id));
 const pills = Array.from(catnavEl.querySelectorAll('.cat-pill'));
-const dots = Array.from(dotsEl.querySelectorAll('.page-dot'));
 const prevArrow = document.getElementById('prevArrow');
 const nextArrow = document.getElementById('nextArrow');
 const totop = document.getElementById('totop');
@@ -35,7 +32,9 @@ pages.forEach((p, i) => { p.style.display = i === 0 ? 'block' : 'none'; });
 
 function updateUI(){
   pills.forEach((p, i) => p.classList.toggle('active', i === current));
-  dots.forEach((d, i) => d.classList.toggle('active', i === current));
+  if (pageNumEl) pageNumEl.innerText = `Pág. ${current + 1} de ${pages.length}`;
+  if (topProgressBar) topProgressBar.style.width = `${((current + 1) / pages.length) * 100}%`;
+  
   pills[current].scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
   prevArrow.disabled = current === 0;
   nextArrow.disabled = current === pages.length - 1;
@@ -108,3 +107,15 @@ function onScroll(){
 window.addEventListener('scroll', onScroll, {passive:true});
 onScroll();
 updateUI();
+
+// Cover animation
+const btnEnter = document.getElementById('btnEnter');
+if (btnEnter) {
+  btnEnter.addEventListener('click', () => {
+    const hero = document.getElementById('hero');
+    hero.classList.add('open-cover');
+    setTimeout(() => {
+      document.getElementById('book').scrollIntoView({behavior:'smooth', block:'start'});
+    }, 300);
+  });
+}

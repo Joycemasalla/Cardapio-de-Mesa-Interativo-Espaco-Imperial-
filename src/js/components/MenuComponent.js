@@ -19,12 +19,12 @@ function renderItem(it){
   </div>`;
 }
 
-export function renderCategory(cat){
+export function renderCategory(cat, index){
   let inner = `
   <section class="page category" id="${cat.id}">
     <div class="cat-banner" style="background-image:url('${cat.banner}')">
       <div class="cat-banner-label">
-        <h2 class="cat-title">${cat.title}</h2>
+        <h2 class="cat-title">${String(index).padStart(2, '0')} &middot; ${cat.title}</h2>
         ${cat.subtitle ? `<p class="cat-note">${cat.subtitle}</p>` : ''}
       </div>
     </div>
@@ -33,12 +33,13 @@ export function renderCategory(cat){
 
   (cat.blocks || []).forEach(block => {
     if(block.type === 'subhead'){
-      inner += `<div class="ribbon">${TAG_ICON}${block.label}</div>`;
+      inner += `<div class="ornate-divider"><span>${block.label}</span><span class="ornament">❦</span></div>`;
       if(block.note) inner += `<p class="subnote">${block.note}</p>`;
     } else if(block.type === 'pricestrip'){
       inner += `<div class="price-strip">`;
       block.options.forEach(o => {
-        inner += `<div class="price-chip"><b>${money(o.price)}</b><span>${o.label}</span></div>`;
+        const isPopular = (o.label === 'M' || o.label === 'Média' || o.label === 'Média (6 fatias)');
+        inner += `<div class="price-chip${isPopular ? ' popular-stamp' : ''}"><b>${money(o.price)}</b><span>${o.label}</span></div>`;
       });
       inner += `</div>`;
     } else if(block.type === 'items'){
