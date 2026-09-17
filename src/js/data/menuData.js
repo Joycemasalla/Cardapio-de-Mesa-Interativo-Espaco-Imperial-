@@ -1,1 +1,1134 @@
-export const menuData = [{"id": "hamburguer", "navLabel": "Hambúrguer", "icon": "hamburguer", "title": "Hambúrguer", "subtitle": "Artesanais & Tradicionais", "banner": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&q=80&w=800", "blocks": [{"type": "subhead", "label": "Artesanais"}, {"type": "items", "items": [{"name": "Cheddar MC Melt", "desc": "Pão brioche, bife de boi (120g), cheddar, cebola caramelizada", "price": 17.0}, {"name": "Chicken Burguer", "desc": "Pão brioche, bife de frango (120g), queijo prato, alface, tomate e molho especial", "price": 18.0}, {"name": "Crispy Bacon", "desc": "Pão brioche, bife de boi (120g), muçarela, bacon caramelizado, cebola crispy", "price": 21.0}, {"name": "Rei Bacon", "desc": "Pão brioche, bife de boi (120g), cheddar, muçarela, bacon, cebola caramelizada e barbecue", "price": 22.0}, {"name": "Chicken Especial", "desc": "Pão brioche, bife de frango empanado, cheddar, alface, tomate, anéis de cebola e barbecue", "price": 23.0}, {"name": "Cheddar Melt Duplo", "desc": "Pão brioche, 2 bifes de boi (120g), 2 fatias de cheddar e cebola caramelizada", "price": 24.0}, {"name": "Costela Burguer", "desc": "Pão brioche, bife de boi (120g), costela desfiada, muçarela, anéis de cebola e barbecue", "price": 24.0}, {"name": "San Melt", "desc": "Pão brioche, bife de boi (120g), catupiry empanado, bacon, geleia de pimenta", "price": 26.0}, {"name": "Super Rei Bacon", "desc": "Pão brioche, 2 bifes de boi (120g), 2 fatias de cheddar, bacon, tomate, cebola caramelizada, molho especial", "price": 27.0}, {"name": "Rib Burguer", "desc": "Pão brioche, 1 bife de boi (120g), 1 bife de costela empanada, muçarela, geleia de pimenta, barbecue", "price": 27.0}, {"name": "Pig Melt", "desc": "Pão brioche, bife de lombo (150g), catupiry empanado, cheddar, tomate, alface, cebola caramelizada, barbecue", "price": 28.0}]}, {"type": "subhead", "label": "Tradicionais"}, {"type": "items", "items": [{"name": "Misto", "desc": "Pão de forma, queijo e presunto", "price": 11.0}, {"name": "Hambúrguer", "desc": "Pão brioche, bife de boi", "price": 13.0}, {"name": "X - Burguer", "desc": "Pão brioche, bife de boi, muçarela", "price": 14.0}, {"name": "Bacon Burguer", "desc": "Pão brioche, bife de boi, bacon", "price": 15.0}, {"name": "X - Egg", "desc": "Pão brioche, bife de boi, queijo, ovo", "price": 17.0}, {"name": "X - Burguersunto", "desc": "Pão brioche, bife de boi, queijo, presunto", "price": 17.0}, {"name": "X - Bacon", "desc": "Pão brioche, bife de boi, queijo, bacon", "price": 17.0}, {"name": "X - Calabresa", "desc": "Pão brioche, bife de boi, calabresa, queijo", "price": 17.0}, {"name": "Americano", "desc": "Pão brioche, bife de boi, queijo, bacon, ovo", "price": 18.0}, {"name": "FranBacon", "desc": "Pão brioche, bife de frango, bacon, queijo, catupiry", "price": 18.0}, {"name": "X - Tudo", "desc": "Pão brioche, bife de boi, bacon, queijo, presunto, ovo", "price": 21.0}]}, {"type": "note", "text": "Todos os lanches tradicionais acompanham bife artesanal, milho, salada e batata palha."}]}, {"id": "pizzas", "navLabel": "Pizzas", "icon": "pizza", "title": "Pizzas", "subtitle": "Escolha o tamanho", "banner": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80&w=800", "blocks": [{"type": "pricestrip", "options": [{"label": "PEQUENA", "price": 42.0}, {"label": "MÉDIA", "price": 48.0}, {"label": "GRANDE", "price": 53.0}]}, {"type": "subhead", "label": "Sabores salgados", "note": "Preço conforme o tamanho escolhido acima."}, {"type": "items", "items": [{"name": "Quatro Queijos", "desc": "Muçarela, cheddar, catupiry, parmesão, azeitona e orégano", "price": null, "priceLabel": ""}, {"name": "Bacon", "desc": "Muçarela, bacon, tomate, azeitona e orégano", "price": null, "priceLabel": ""}, {"name": "Calabresa", "desc": "Muçarela, calabresa, cebola, azeitona e orégano", "price": null, "priceLabel": ""}, {"name": "Camarão", "desc": "Muçarela, camarão, catupiry, alho frito, cebola, azeitona e orégano", "price": null, "priceLabel": ""}, {"name": "Carne Seca", "desc": "Muçarela, carne seca, catupiry, cebola, azeitona e orégano", "price": null, "priceLabel": ""}, {"name": "Costela", "desc": "Muçarela, costela, catupiry, cebola, azeitona e orégano", "price": null, "priceLabel": ""}, {"name": "Da Roça", "desc": "Muçarela, frango desfiado, milho, bacon, azeitona e orégano", "price": null, "priceLabel": ""}, {"name": "Presunto", "desc": "Muçarela, presunto, azeitona e orégano", "price": null, "priceLabel": ""}, {"name": "Frango c/ Catupiry", "desc": "Muçarela, frango desfiado, catupiry, azeitona e orégano", "price": null, "priceLabel": ""}, {"name": "Lombo", "desc": "Muçarela, lombo canadense, catupiry, azeitona e orégano", "price": null, "priceLabel": ""}, {"name": "Marguerita", "desc": "Muçarela, manjericão, parmesão, tomate, azeitona e orégano", "price": null, "priceLabel": ""}, {"name": "À Moda", "desc": "Muçarela, presunto, calabresa, palmito, milho, catupiry, cebola, azeitona e orégano", "price": null, "priceLabel": ""}, {"name": "Americana", "desc": "Muçarela, cheddar, tomate, pimentão, catupiry, azeitona e orégano", "price": null, "priceLabel": ""}, {"name": "Palmito", "desc": "Muçarela, palmito, catupiry, azeitona e orégano", "price": null, "priceLabel": ""}, {"name": "Portuguesa", "desc": "Muçarela, calabresa, presunto, tomate, pimentão, ovo, cebola, azeitona e orégano", "price": null, "priceLabel": ""}, {"name": "Italiana", "desc": "Muçarela, salaminho, cebola, azeitona e orégano", "price": null, "priceLabel": ""}, {"name": "Filé c/ Fritas", "desc": "Muçarela, contra filé, fritas, cebola, azeitona e orégano", "tag": "Tamanho G", "price": null, "priceLabel": "R$ 100,00"}]}, {"type": "subhead", "label": "Pizzas doces", "note": "Preço conforme o tamanho escolhido acima."}, {"type": "items", "items": [{"name": "Prestígio", "desc": "Muçarela, brigadeiro e coco", "price": null, "priceLabel": ""}, {"name": "Banana c/ Doce de leite", "desc": "Muçarela, banana, doce de leite e canela", "price": null, "priceLabel": ""}, {"name": "Creme de Avelã c/ Confete", "desc": "Muçarela, creme de avelã e confete", "price": null, "priceLabel": ""}, {"name": "Romeu e Julieta", "desc": "Muçarela, requeijão cremoso e goiabada", "price": null, "priceLabel": ""}]}]}, {"id": "porcoes", "navLabel": "Porções", "icon": "porcoes", "title": "Porções", "subtitle": null, "banner": "https://images.unsplash.com/photo-1541592102776-477ac887c537?auto=format&fit=crop&q=80&w=800", "blocks": [{"type": "items", "items": [{"name": "Mandioca Frita", "price": 20.0}, {"name": "Torresmo", "price": 20.0}, {"name": "Salaminho", "price": 20.0}, {"name": "Porção de Salgadinho", "price": 20.0}, {"name": "Bucho à Milanesa", "price": 25.0}, {"name": "Batata Fritas", "price": 20.0}, {"name": "Batata c/ Queijo", "price": 25.0}, {"name": "Batata c/ Queijo e Bacon", "price": 30.0}, {"name": "Batata c/ Queijo e Calabresa", "price": 30.0}, {"name": "Batata c/ cheddar, Bacon e Calabresa", "price": 35.0}, {"name": "Jiló Frito Especial", "price": 25.0}, {"name": "Frango a Passarinho", "price": 30.0}, {"name": "Calabresa Acebolada", "price": 30.0}, {"name": "Isca de Frango", "price": 35.0}, {"name": "Torresmo de rolo c/ Geleia de Abacaxi", "price": 35.0}, {"name": "Bolinho de Frango", "price": 40.0}, {"name": "Bolinho de Costela", "price": 45.0}, {"name": "Batata c/ Costela", "price": 45.0}, {"name": "Linguiça c/ Mandioca", "price": 35.0}, {"name": "Torresmo c/ Mandioca", "price": 35.0}, {"name": "Filé de Tilápia", "price": 55.0}, {"name": "Trio Mineiro", "price": 55.0}, {"name": "Escondidinho de Carne Seca", "price": 55.0}, {"name": "Escondidinho de Camarão", "price": 60.0}, {"name": "Contra Filé c/ Fritas", "price": 75.0}, {"name": "Filé de Tilápia c/ Fritas", "price": 80.0}, {"name": "Picanha", "price": 80.0}, {"name": "Camarão Empanado", "price": 85.0}]}]}, {"id": "baguete", "navLabel": "Baguete", "icon": "baguete", "title": "Baguete", "subtitle": null, "banner": "https://images.unsplash.com/photo-1550507992-eb63ffee0224?auto=format&fit=crop&q=80&w=800", "blocks": [{"type": "tier", "name": "Churrasco", "desc": "Pão francês, maionese de alho, churrasco, muçarela", "groups": [{"label": null, "opts": [{"label": "1 Espetinho", "price": 16.0}, {"label": "2 Espetinhos", "price": 23.0}]}], "extra": "Adicional — R$ 2,00 cada: vinagrete ou batata palha"}, {"type": "tier", "name": "Costela", "desc": "Pão francês, costela, cebola, catupiry, muçarela", "groups": [{"label": null, "opts": [{"label": "Baguete de Costela", "price": 18.0}]}], "extra": "Adicional — R$ 2,00 cada: vinagrete, batata palha, salada (alface e tomate), cheddar ou barbecue"}]}, {"id": "chapas", "navLabel": "Chapas", "icon": "chapas", "title": "Chapas", "subtitle": null, "banner": "https://images.unsplash.com/photo-1544025162-811114215b22?auto=format&fit=crop&q=80&w=800", "blocks": [{"type": "items", "items": [{"name": "Chapa Mista (2 a 3 pessoas)", "desc": "Frango grelhado, contrafilé, calabresa e batata frita", "price": 95.0}, {"name": "Especial da Casa (2 pessoas)", "desc": "300g de picanha, 200g de mandioca na manteiga, 200g de batata frita", "price": 120.0}, {"name": "Especial da Casa (3 pessoas)", "desc": "500g de picanha, 200g de mandioca na manteiga, 200g de batata frita", "price": 150.0}]}]}, {"id": "picanha", "navLabel": "Picanha na Pedra", "icon": "picanha", "title": "Picanha na Pedra", "subtitle": null, "banner": "https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?auto=format&fit=crop&q=80&w=800", "blocks": [{"type": "tier", "name": "Simples", "desc": "Picanha + farofa + vinagrete", "groups": [{"label": null, "opts": [{"label": "2 pessoas (500g)", "price": 120.0}, {"label": "3 pessoas (750g)", "price": 150.0}]}]}, {"type": "tier", "name": "Completa", "desc": "Picanha + farofa + vinagrete + arroz + batata frita", "groups": [{"label": null, "opts": [{"label": "2 pessoas (500g)", "price": 130.0}, {"label": "3 pessoas (750g)", "price": 180.0}]}]}]}, {"id": "bebidas", "navLabel": "Bebidas", "icon": "bebidas", "title": "Bebidas", "subtitle": null, "banner": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&q=80&w=800", "blocks": [{"type": "subhead", "label": "Sem álcool"}, {"type": "items", "items": [{"name": "Coca-Cola 2L", "price": null}, {"name": "Guaraná 2L", "price": null}, {"name": "Coca-Cola 1L", "price": null}, {"name": "Guaraná 1L", "price": null}, {"name": "Coca-Cola lata", "price": null}, {"name": "Guaraná lata", "price": null}, {"name": "Água c/ gás", "price": null}, {"name": "Água s/ gás", "price": null}, {"name": "H2O / Limoneto", "price": null}, {"name": "Suco natural (laranja, limão)", "price": null}, {"name": "Suco de polpa (abacaxi, abacaxi c/ hortelã, morango, graviola, acerola)", "price": null}]}, {"type": "subhead", "label": "Com álcool"}, {"type": "items", "items": [{"name": "Brahma 600ml", "price": null}, {"name": "Skol 600ml", "price": null}, {"name": "Heineken 600ml", "price": null}, {"name": "Original 600ml", "price": null}, {"name": "Amstel 600ml", "price": null}, {"name": "Sparten 600ml", "price": null}, {"name": "Heineken long neck", "price": null}, {"name": "Estela long neck", "price": null}, {"name": "Corona long neck", "price": null}, {"name": "Skol Beats long neck", "price": null}]}]}];
+export const menuData = [
+  {
+    "id": "artesanais",
+    "title": "Hambúrguer artesanais",
+    "navLabel": "Hambúrguer",
+    "banner": "/assets/artesanais-DXdpwsvT.jpg",
+    "items": [
+      {
+        "id": "cheddar-mc-melt",
+        "name": "Cheddar MC Melt",
+        "avatar": "CM",
+        "price": 17,
+        "options": [],
+        "desc": "Pão brioche, bife de boi (120g), cheddar, cebola caramelizada"
+      },
+      {
+        "id": "chicken-burguer",
+        "name": "Chicken Burguer",
+        "avatar": "CB",
+        "price": 18,
+        "options": [],
+        "desc": "Pão brioche, bife de frango (120g), queijo prato, alface, tomate e molho especial"
+      },
+      {
+        "id": "crispy-bacon",
+        "name": "Crispy Bacon",
+        "avatar": "CB",
+        "price": 21,
+        "options": [],
+        "desc": "Pão brioche, bife de boi (120g), muçarela, bacon caramelizado, cebola crispy"
+      },
+      {
+        "id": "rei-bacon",
+        "name": "Rei Bacon",
+        "avatar": "RB",
+        "price": 22,
+        "options": [],
+        "desc": "Pão brioche, bife de boi (120g), cheddar, muçarela, bacon, cebola caramelizada e barbecue"
+      },
+      {
+        "id": "chicken-especial",
+        "name": "Chicken Especial",
+        "avatar": "CE",
+        "price": 23,
+        "options": [],
+        "desc": "Pão brioche, bife de frango empanado, cheddar, alface, tomate, anéis de cebola e barbecue"
+      },
+      {
+        "id": "cheddar-melt-duplo",
+        "name": "Cheddar Melt Duplo",
+        "avatar": "CM",
+        "price": 24,
+        "options": [],
+        "desc": "Pão brioche, 2 bife de boi (120g), 2 fatias de cheddar e cebola caramelizada"
+      },
+      {
+        "id": "costela-burguer",
+        "name": "Costela Burguer",
+        "avatar": "CB",
+        "price": 24,
+        "options": [],
+        "desc": "Pão brioche, bife de boi (120g), costela desfiada, muçarela, anéis de cebola e barbecue"
+      },
+      {
+        "id": "san-melt",
+        "name": "San Melt",
+        "avatar": "SM",
+        "price": 26,
+        "options": [],
+        "desc": "Pão brioche, bife de boi (120g), catupiry empanado, bacon, geleia de pimenta"
+      },
+      {
+        "id": "super-rei-bacon",
+        "name": "Super Rei Bacon",
+        "avatar": "SR",
+        "price": 27,
+        "options": [],
+        "desc": "Pão brioche, 2 bife de boi (120g), 2 fatias de cheddar, bacon, tomate, cebola caramelizada, molho especial"
+      },
+      {
+        "id": "rib-burguer",
+        "name": "Rib Burguer",
+        "avatar": "RB",
+        "price": 27,
+        "options": [],
+        "desc": "Pão brioche, 1 bife de boi (120g), 1 bife de costela empanada, muçarela, geleia de pimenta, barbecue"
+      },
+      {
+        "id": "pig-melt",
+        "name": "Pig Melt",
+        "avatar": "PM",
+        "price": 28,
+        "options": [],
+        "desc": "Pão brioche, bife de lombo (150g), catupiry empanado, cheddar, tomate, alface, cebola caramelizada, barbecue"
+      }
+    ]
+  },
+  {
+    "id": "tradicionais",
+    "title": "Hambúrguer tradicionais",
+    "navLabel": "Hambúrguer",
+    "banner": "/assets/tradicionais-BgCtH9KS.jpg",
+    "items": [
+      {
+        "id": "misto",
+        "name": "Misto",
+        "avatar": "M",
+        "price": 11,
+        "options": [],
+        "desc": "Pão de forma, queijo e presunto"
+      },
+      {
+        "id": "hambúrguer",
+        "name": "Hambúrguer",
+        "avatar": "H",
+        "price": 13,
+        "options": [],
+        "desc": "Pão brioche, bife de boi"
+      },
+      {
+        "id": "x---burguer",
+        "name": "X - Burguer",
+        "avatar": "XB",
+        "price": 14,
+        "options": [],
+        "desc": "Pão brioche, bife de boi, muçarela"
+      },
+      {
+        "id": "bacon-burguer",
+        "name": "Bacon Burguer",
+        "avatar": "BB",
+        "price": 15,
+        "options": [],
+        "desc": "Pão brioche, bife de boi, bacon"
+      },
+      {
+        "id": "x---egg",
+        "name": "X - Egg",
+        "avatar": "XE",
+        "price": 17,
+        "options": [],
+        "desc": "Pão brioche, bife de boi, queijo, ovo"
+      },
+      {
+        "id": "x---burguersunto",
+        "name": "X - Burguersunto",
+        "avatar": "XB",
+        "price": 17,
+        "options": [],
+        "desc": "Pão brioche, bife de boi, queijo, presunto"
+      },
+      {
+        "id": "x---bacon",
+        "name": "X - Bacon",
+        "avatar": "XB",
+        "price": 17,
+        "options": [],
+        "desc": "Pão brioche, bife de boi, queijo, bacon"
+      },
+      {
+        "id": "x---calabresa",
+        "name": "X - Calabresa",
+        "avatar": "XC",
+        "price": 17,
+        "options": [],
+        "desc": "Pão brioche, bife de boi, calabresa, queijo"
+      },
+      {
+        "id": "americano",
+        "name": "Americano",
+        "avatar": "A",
+        "price": 18,
+        "options": [],
+        "desc": "Pão brioche, bife de boi, queijo, bacon, ovo"
+      },
+      {
+        "id": "franbacon",
+        "name": "FranBacon",
+        "avatar": "F",
+        "price": 18,
+        "options": [],
+        "desc": "Pão brioche, bife de frango, bacon, queijo, catupiry"
+      },
+      {
+        "id": "x---tudo",
+        "name": "X - Tudo",
+        "avatar": "XT",
+        "price": 21,
+        "options": [],
+        "desc": "Pão brioche, bife de boi, bacon, queijo, presunto, ovo"
+      }
+    ]
+  },
+  {
+    "id": "pizzas",
+    "title": "Pizzas",
+    "navLabel": "Pizzas",
+    "banner": "/assets/pizzas-D818a_Fl.jpg",
+    "items": [
+      {
+        "id": "quatro-queijos",
+        "name": "Quatro Queijos",
+        "avatar": "QQ",
+        "price": null,
+        "options": [
+          {
+            "label": "P",
+            "price": 42
+          },
+          {
+            "label": "M",
+            "price": 48
+          },
+          {
+            "label": "G",
+            "price": 53
+          }
+        ],
+        "desc": "Muçarela, cheddar, catupiry, parmesão, azeitona e orégano"
+      },
+      {
+        "id": "bacon",
+        "name": "Bacon",
+        "avatar": "B",
+        "price": null,
+        "options": [
+          {
+            "label": "P",
+            "price": 42
+          },
+          {
+            "label": "M",
+            "price": 48
+          },
+          {
+            "label": "G",
+            "price": 53
+          }
+        ],
+        "desc": "Muçarela, bacon, tomate, azeitona e orégano"
+      },
+      {
+        "id": "calabresa",
+        "name": "Calabresa",
+        "avatar": "C",
+        "price": null,
+        "options": [
+          {
+            "label": "P",
+            "price": 42
+          },
+          {
+            "label": "M",
+            "price": 48
+          },
+          {
+            "label": "G",
+            "price": 53
+          }
+        ],
+        "desc": "Muçarela, calabresa, cebola, azeitona e orégano"
+      },
+      {
+        "id": "camarão",
+        "name": "Camarão",
+        "avatar": "C",
+        "price": null,
+        "options": [
+          {
+            "label": "P",
+            "price": 42
+          },
+          {
+            "label": "M",
+            "price": 48
+          },
+          {
+            "label": "G",
+            "price": 53
+          }
+        ],
+        "desc": "Muçarela, camarão, catupiry, alho frito, cebola, azeitona e orégano"
+      },
+      {
+        "id": "carne-seca",
+        "name": "Carne Seca",
+        "avatar": "CS",
+        "price": null,
+        "options": [
+          {
+            "label": "P",
+            "price": 42
+          },
+          {
+            "label": "M",
+            "price": 48
+          },
+          {
+            "label": "G",
+            "price": 53
+          }
+        ],
+        "desc": "Muçarela, carne seca, catupiry, cebola, azeitona e orégano"
+      },
+      {
+        "id": "costela",
+        "name": "Costela",
+        "avatar": "C",
+        "price": null,
+        "options": [
+          {
+            "label": "P",
+            "price": 42
+          },
+          {
+            "label": "M",
+            "price": 48
+          },
+          {
+            "label": "G",
+            "price": 53
+          }
+        ],
+        "desc": "Muçarela, costela, catupiry, cebola, azeitona e orégano"
+      },
+      {
+        "id": "da-roça",
+        "name": "Da Roça",
+        "avatar": "DR",
+        "price": null,
+        "options": [
+          {
+            "label": "P",
+            "price": 42
+          },
+          {
+            "label": "M",
+            "price": 48
+          },
+          {
+            "label": "G",
+            "price": 53
+          }
+        ],
+        "desc": "Muçarela, frango desfiado, milho, bacon, azeitona e orégano"
+      },
+      {
+        "id": "presunto",
+        "name": "Presunto",
+        "avatar": "P",
+        "price": null,
+        "options": [
+          {
+            "label": "P",
+            "price": 42
+          },
+          {
+            "label": "M",
+            "price": 48
+          },
+          {
+            "label": "G",
+            "price": 53
+          }
+        ],
+        "desc": "Muçarela, presunto, azeitona e orégano"
+      },
+      {
+        "id": "frango-c/-catupiry",
+        "name": "Frango c/ Catupiry",
+        "avatar": "FC",
+        "price": null,
+        "options": [
+          {
+            "label": "P",
+            "price": 42
+          },
+          {
+            "label": "M",
+            "price": 48
+          },
+          {
+            "label": "G",
+            "price": 53
+          }
+        ],
+        "desc": "Muçarela, frango desfiado, catupiry, azeitona e orégano"
+      },
+      {
+        "id": "lombo",
+        "name": "Lombo",
+        "avatar": "L",
+        "price": null,
+        "options": [
+          {
+            "label": "P",
+            "price": 42
+          },
+          {
+            "label": "M",
+            "price": 48
+          },
+          {
+            "label": "G",
+            "price": 53
+          }
+        ],
+        "desc": "Muçarela, lombo canadense, catupiry, azeitona e orégano"
+      },
+      {
+        "id": "marguerita",
+        "name": "Marguerita",
+        "avatar": "M",
+        "price": null,
+        "options": [
+          {
+            "label": "P",
+            "price": 42
+          },
+          {
+            "label": "M",
+            "price": 48
+          },
+          {
+            "label": "G",
+            "price": 53
+          }
+        ],
+        "desc": "Muçarela, manjericão, parmesão, tomate, azeitona e orégano"
+      },
+      {
+        "id": "à-moda",
+        "name": "À Moda",
+        "avatar": "ÀM",
+        "price": null,
+        "options": [
+          {
+            "label": "P",
+            "price": 42
+          },
+          {
+            "label": "M",
+            "price": 48
+          },
+          {
+            "label": "G",
+            "price": 53
+          }
+        ],
+        "desc": "Muçarela, presunto, calabresa, palmito, milho, catupiry, cebola, azeitona e orégano"
+      },
+      {
+        "id": "americana",
+        "name": "Americana",
+        "avatar": "A",
+        "price": null,
+        "options": [
+          {
+            "label": "P",
+            "price": 42
+          },
+          {
+            "label": "M",
+            "price": 48
+          },
+          {
+            "label": "G",
+            "price": 53
+          }
+        ],
+        "desc": "Muçarela, cheddar, tomate, pimentão, catupiry, azeitona e orégano"
+      },
+      {
+        "id": "palmito",
+        "name": "Palmito",
+        "avatar": "P",
+        "price": null,
+        "options": [
+          {
+            "label": "P",
+            "price": 42
+          },
+          {
+            "label": "M",
+            "price": 48
+          },
+          {
+            "label": "G",
+            "price": 53
+          }
+        ],
+        "desc": "Muçarela, palmito, catupiry, azeitona e orégano"
+      },
+      {
+        "id": "portuguesa",
+        "name": "Portuguesa",
+        "avatar": "P",
+        "price": null,
+        "options": [
+          {
+            "label": "P",
+            "price": 42
+          },
+          {
+            "label": "M",
+            "price": 48
+          },
+          {
+            "label": "G",
+            "price": 53
+          }
+        ],
+        "desc": "Muçarela, calabresa, presunto, tomate, pimentão, ovo, cebola, azeitona e orégano"
+      },
+      {
+        "id": "italiana",
+        "name": "Italiana",
+        "avatar": "I",
+        "price": null,
+        "options": [
+          {
+            "label": "P",
+            "price": 42
+          },
+          {
+            "label": "M",
+            "price": 48
+          },
+          {
+            "label": "G",
+            "price": 53
+          }
+        ],
+        "desc": "Muçarela, salaminho, cebola, azeitona e orégano"
+      },
+      {
+        "id": "file-c/-fritas",
+        "name": "File c/ Fritas",
+        "avatar": "FC",
+        "price": null,
+        "options": [],
+        "desc": "Muçarela, contra filê, fritas, cebola, azeitona e orégano"
+      },
+      {
+        "id": "prestígio",
+        "name": "Prestígio",
+        "avatar": "P",
+        "price": null,
+        "options": [
+          {
+            "label": "P",
+            "price": 42
+          },
+          {
+            "label": "M",
+            "price": 48
+          },
+          {
+            "label": "G",
+            "price": 53
+          }
+        ],
+        "desc": "Muçarela, brigadeiro e coco"
+      },
+      {
+        "id": "banana-c/-doce-de-leite",
+        "name": "Banana c/ Doce de leite",
+        "avatar": "BC",
+        "price": null,
+        "options": [
+          {
+            "label": "P",
+            "price": 42
+          },
+          {
+            "label": "M",
+            "price": 48
+          },
+          {
+            "label": "G",
+            "price": 53
+          }
+        ],
+        "desc": "Muçarela, banana, doce de leite e canela"
+      },
+      {
+        "id": "creme-de-avelã-c/-confete",
+        "name": "Creme de Avelã c/ Confete",
+        "avatar": "CD",
+        "price": null,
+        "options": [
+          {
+            "label": "P",
+            "price": 42
+          },
+          {
+            "label": "M",
+            "price": 48
+          },
+          {
+            "label": "G",
+            "price": 53
+          }
+        ],
+        "desc": "Muçarela, creme de avelã e confete"
+      },
+      {
+        "id": "romeu-e-julieta",
+        "name": "Romeu e Julieta",
+        "avatar": "RE",
+        "price": null,
+        "options": [
+          {
+            "label": "P",
+            "price": 42
+          },
+          {
+            "label": "M",
+            "price": 48
+          },
+          {
+            "label": "G",
+            "price": 53
+          }
+        ],
+        "desc": "Muçarela, requeijão cremoso e goiabada"
+      }
+    ]
+  },
+  {
+    "id": "porcoes",
+    "title": "Porções",
+    "navLabel": "Porções",
+    "banner": "/assets/porcoes-NbD1ynMd.jpg",
+    "items": [
+      {
+        "id": "mandioca-frita",
+        "name": "Mandioca Frita",
+        "avatar": "MF",
+        "price": 20,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "torresmo",
+        "name": "Torresmo",
+        "avatar": "T",
+        "price": 20,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "salaminho",
+        "name": "Salaminho",
+        "avatar": "S",
+        "price": 20,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "porção-de-salgadinho",
+        "name": "Porção de Salgadinho",
+        "avatar": "PD",
+        "price": 20,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "batata-fritas",
+        "name": "Batata Fritas",
+        "avatar": "BF",
+        "price": 20,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "bucho-à-milanesa",
+        "name": "Bucho à Milanesa",
+        "avatar": "BÀ",
+        "price": 25,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "batata-c/-queijo",
+        "name": "Batata c/ Queijo",
+        "avatar": "BC",
+        "price": 25,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "jiló-frito-especial",
+        "name": "Jiló Frito Especial",
+        "avatar": "JF",
+        "price": 25,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "batata-c/-queijo-e-bacon",
+        "name": "Batata c/ Queijo e Bacon",
+        "avatar": "BC",
+        "price": 30,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "batata-c/-queijo-e-calabresa",
+        "name": "Batata c/ Queijo e Calabresa",
+        "avatar": "BC",
+        "price": 30,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "frango-a-passarinho",
+        "name": "Frango a Passarinho",
+        "avatar": "FA",
+        "price": 30,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "calabresa-acebolada",
+        "name": "Calabresa Acebolada",
+        "avatar": "CA",
+        "price": 30,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "batata-c/-cheddar,-bacon-e-calabresa",
+        "name": "Batata c/ cheddar, Bacon e Calabresa",
+        "avatar": "BC",
+        "price": 35,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "isca-de-frango",
+        "name": "Isca de Frango",
+        "avatar": "ID",
+        "price": 35,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "torresmo-de-rolo-c/-geleia-de-abacaxi",
+        "name": "Torresmo de rolo c/ Geleia de Abacaxi",
+        "avatar": "TD",
+        "price": 35,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "linguiça-c/-mandioca",
+        "name": "Linguiça c/ Mandioca",
+        "avatar": "LC",
+        "price": 35,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "torresmo-c/-mandioca",
+        "name": "Torresmo c/ Mandioca",
+        "avatar": "TC",
+        "price": 35,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "bolinho-de-frango",
+        "name": "Bolinho de Frango",
+        "avatar": "BD",
+        "price": 40,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "bolinho-de-costela",
+        "name": "Bolinho de Costela",
+        "avatar": "BD",
+        "price": 45,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "batata-c/-costela",
+        "name": "Batata c/ Costela",
+        "avatar": "BC",
+        "price": 45,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "filé-de-tilápia",
+        "name": "Filé de Tilápia",
+        "avatar": "FD",
+        "price": 55,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "trio-mineiro",
+        "name": "Trio Mineiro",
+        "avatar": "TM",
+        "price": 55,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "escondidinho-de-carne-seca",
+        "name": "Escondidinho de Carne Seca",
+        "avatar": "ED",
+        "price": 55,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "escondidinho-de-camarão",
+        "name": "Escondidinho de Camarão",
+        "avatar": "ED",
+        "price": 60,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "contra-filé-c/-fritas",
+        "name": "Contra Filé c/ Fritas",
+        "avatar": "CF",
+        "price": 75,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "filé-de-tilápia-c/-fritas",
+        "name": "Filé de Tilápia c/ Fritas",
+        "avatar": "FD",
+        "price": 80,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "picanha",
+        "name": "Picanha",
+        "avatar": "P",
+        "price": 80,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "camarão-empanado",
+        "name": "Camarão Empanado",
+        "avatar": "CE",
+        "price": 85,
+        "options": [],
+        "desc": ""
+      }
+    ]
+  },
+  {
+    "id": "baguete",
+    "title": "Baguete",
+    "navLabel": "Baguete",
+    "banner": "/assets/baguete-43k5KYjR.jpg",
+    "items": [
+      {
+        "id": "baguete-de-churrasco",
+        "name": "Baguete de Churrasco",
+        "avatar": "BD",
+        "price": null,
+        "options": [],
+        "desc": "Pão francês, maionese de alho, churrasco, muçarela"
+      },
+      {
+        "id": "baguete-de-costela",
+        "name": "Baguete de Costela",
+        "avatar": "BD",
+        "price": 18,
+        "options": [],
+        "desc": "Pão francês, costela, cebola, catupiry, muçarela"
+      }
+    ]
+  },
+  {
+    "id": "chapas",
+    "title": "Chapas",
+    "navLabel": "Chapas",
+    "banner": "/assets/chapas-Cvu1J14F.jpg",
+    "items": [
+      {
+        "id": "chapa-mista",
+        "name": "Chapa Mista",
+        "avatar": "CM",
+        "price": 95,
+        "options": [],
+        "desc": "Frango grelhado, contrafilé, calabresa e batata frita"
+      },
+      {
+        "id": "especial-da-casa",
+        "name": "Especial da casa",
+        "avatar": "ED",
+        "price": 120,
+        "options": [],
+        "desc": "300g de picanha, 200g mandioca na manteiga, 200g de batata frita"
+      },
+      {
+        "id": "especial-da-casa",
+        "name": "Especial da casa",
+        "avatar": "ED",
+        "price": 150,
+        "options": [],
+        "desc": "500g de picanha, 200g mandioca na manteiga, 200g de batata frita"
+      }
+    ]
+  },
+  {
+    "id": "picanha",
+    "title": "Picanha na pedra",
+    "navLabel": "Picanha",
+    "banner": "/assets/picanha-CZ-Cf9uu.jpg",
+    "items": [
+      {
+        "id": "picanha-+-farofa-+-vinagrete",
+        "name": "Picanha + Farofa + Vinagrete",
+        "avatar": "PF",
+        "price": 120,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "picanha-+-farofa-+-vinagrete",
+        "name": "Picanha + Farofa + Vinagrete",
+        "avatar": "PF",
+        "price": 150,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "picanha-+-farofa-+-vinagrete-+-arroz-+-batata-frita",
+        "name": "Picanha + Farofa + Vinagrete + Arroz + Batata frita",
+        "avatar": "PF",
+        "price": 130,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "picanha-+-farofa-+-vinagrete-+-arroz-+-batata-frita",
+        "name": "Picanha + Farofa + Vinagrete + Arroz + Batata frita",
+        "avatar": "PF",
+        "price": 180,
+        "options": [],
+        "desc": ""
+      }
+    ]
+  },
+  {
+    "id": "bebidas",
+    "title": "Bebidas",
+    "navLabel": "Bebidas",
+    "banner": "/assets/bebidas-BBSMWZWo.jpg",
+    "items": [
+      {
+        "id": "coca-cola-2l",
+        "name": "Coca-Cola 2L",
+        "avatar": "CC",
+        "price": null,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "guaraná-2l",
+        "name": "Guaraná 2L",
+        "avatar": "GL",
+        "price": null,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "coca-cola-1l",
+        "name": "Coca-Cola 1L",
+        "avatar": "CC",
+        "price": null,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "guaraná-1l",
+        "name": "Guaraná 1L",
+        "avatar": "GL",
+        "price": null,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "coca-cola-lata",
+        "name": "Coca-Cola Lata",
+        "avatar": "CC",
+        "price": null,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "guaraná-lata",
+        "name": "Guaraná Lata",
+        "avatar": "GL",
+        "price": null,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "água-c/-gás",
+        "name": "Água c/ Gás",
+        "avatar": "ÁC",
+        "price": null,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "água-s/-gás",
+        "name": "Água s/ Gás",
+        "avatar": "ÁS",
+        "price": null,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "h2o-/-limoneto",
+        "name": "H2O / Limoneto",
+        "avatar": "HO",
+        "price": null,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "suco-natural",
+        "name": "Suco Natural",
+        "avatar": "SN",
+        "price": null,
+        "options": [],
+        "desc": "Laranja, limão"
+      },
+      {
+        "id": "suco-de-polpa",
+        "name": "Suco de Polpa",
+        "avatar": "SD",
+        "price": null,
+        "options": [],
+        "desc": "Abacaxi, abacaxi c/ hortelã, morango, graviola, acerola"
+      },
+      {
+        "id": "brahma-600ml",
+        "name": "Brahma 600ml",
+        "avatar": "BM",
+        "price": null,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "skol-600ml",
+        "name": "Skol 600ml",
+        "avatar": "SM",
+        "price": null,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "heineken-600ml",
+        "name": "Heineken 600ml",
+        "avatar": "HM",
+        "price": null,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "original-600ml",
+        "name": "Original 600ml",
+        "avatar": "OM",
+        "price": null,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "amstel-600ml",
+        "name": "Amstel 600ml",
+        "avatar": "AM",
+        "price": null,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "sparten-600ml",
+        "name": "Sparten 600ml",
+        "avatar": "SM",
+        "price": null,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "heineken-long-neck",
+        "name": "Heineken long neck",
+        "avatar": "HL",
+        "price": null,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "estela-long-neck",
+        "name": "Estela long neck",
+        "avatar": "EL",
+        "price": null,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "corona-long-neck",
+        "name": "Corona long neck",
+        "avatar": "CL",
+        "price": null,
+        "options": [],
+        "desc": ""
+      },
+      {
+        "id": "skol-beats-long-neck",
+        "name": "Skol beats long neck",
+        "avatar": "SB",
+        "price": null,
+        "options": [],
+        "desc": ""
+      }
+    ]
+  }
+];

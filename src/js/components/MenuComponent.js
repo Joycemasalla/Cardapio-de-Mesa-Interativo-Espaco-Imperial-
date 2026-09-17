@@ -1,67 +1,60 @@
 import { TAG_ICON } from './icons.js';
 
 function money(v){
-  if(v === null) return null;
+  if(v === null || v === undefined) return null;
   return 'R$ ' + v.toFixed(2).replace('.', ',');
 }
 
 function renderItem(it){
   const hasDesc = !!it.desc;
+  
+  // Format the price string based on single price or options
+  let priceHtml = '';
+  if (it.price !== null && it.price !== undefined) {
+    priceHtml = `<div class="item-price">${money(it.price)}</div>`;
+  } else if (it.options && it.options.length > 0) {
+    // e.g. "P R$ 42,00 · M R$ 48,00 · G R$ 53,00"
+    const optsStr = it.options.map(o => `${o.label} ${money(o.price)}`).join(' &middot; ');
+    priceHtml = `<div class="item-desc" style="color:var(--gold-soft);font-weight:600;margin-top:2px;">${optsStr}</div>`;
+  } else {
+    priceHtml = `<div class="item-price" style="color:var(--muted-2);font-size:12px;font-style:italic;">Consulte</div>`;
+  }
+
+  // Se a descrição for muito longa, usamos a funcionalidade de expandir. Mas como pedido pelo usuário:
+  // "pode ficar sempre visivel e quando clicar expandir".
+  // Vou deixar a descrição base sempre visível. Se quiser estender, abre mais.
+  // Como o lovable não expande muito, a descrição fica ali mesmo.
+  // Vou usar o `<div class="item-desc">` que fica sempre visível.
+  
   return `
-  <div class="item${hasDesc ? '' : ' no-desc'}" ${hasDesc ? '' : 'style="cursor:default"'}>
-    <div class="item-row" ${hasDesc ? 'onclick="this.closest(\'.item\').classList.toggle(\'open\')"' : ''}>
-      <span class="item-name">${it.name}${it.tag ? `<span class="item-tag">${it.tag}</span>` : ''}</span>
-      <span class="item-leader"></span>
-      <span class="item-price ${it.price === null ? 'na' : ''}">${it.price === null ? (it.priceLabel || 'Consulte o garçom') : money(it.price)}</span>
-      ${hasDesc ? '<span class="item-caret"></span>' : ''}
+  <div class="item-card" ${hasDesc ? 'onclick="this.classList.toggle(\'open\')"' : ''}>
+    <div class="item-avatar">${it.avatar || it.name.substring(0,2).toUpperCase()}</div>
+    <div class="item-content">
+      <div class="item-header">
+        <h3 class="item-name">${it.name}</h3>
+        ${it.price !== null && it.price !== undefined ? priceHtml : ''}
+      </div>
+      ${hasDesc ? `<p class="item-desc">${it.desc}</p>` : ''}
+      ${it.price === null && it.options && it.options.length > 0 ? priceHtml : ''}
     </div>
-    ${hasDesc ? `<p class="item-desc">${it.desc}</p>` : ''}
   </div>`;
 }
 
 export function renderCategory(cat, index){
   let inner = `
-  <section class="page category" id="${cat.id}">
+  <section class="category" id="${cat.id}">
     <div class="cat-banner" style="background-image:url('${cat.banner}')">
       <div class="cat-banner-label">
         <h2 class="cat-title">${String(index).padStart(2, '0')} &middot; ${cat.title}</h2>
-        ${cat.subtitle ? `<p class="cat-note">${cat.subtitle}</p>` : ''}
       </div>
     </div>
     <div class="cat-body">
   `;
 
-  (cat.blocks || []).forEach(block => {
-    if(block.type === 'subhead'){
-      inner += `<div class="ornate-divider"><span>${block.label}</span><span class="ornament">❦</span></div>`;
-      if(block.note) inner += `<p class="subnote">${block.note}</p>`;
-    } else if(block.type === 'pricestrip'){
-      inner += `<div class="price-strip">`;
-      block.options.forEach(o => {
-        const isPopular = (o.label === 'M' || o.label === 'Média' || o.label === 'Média (6 fatias)');
-        inner += `<div class="price-chip${isPopular ? ' popular-stamp' : ''}"><b>${money(o.price)}</b><span>${o.label}</span></div>`;
-      });
-      inner += `</div>`;
-    } else if(block.type === 'items'){
-      block.items.forEach(it => { inner += renderItem(it); });
-    } else if(block.type === 'tier'){
-      inner += `<div class="tier-card"><p class="tier-name">${block.name}</p>`;
-      if(block.desc) inner += `<p class="tier-desc">${block.desc}</p>`;
-      block.groups.forEach(g => {
-        if(g.label) inner += `<div class="tier-group-label">${g.label}</div>`;
-        inner += `<div class="tier-options">`;
-        g.opts.forEach(o => {
-          inner += `<div class="tier-opt"><span class="t-label">${o.label}</span><span class="t-price">${money(o.price)}</span></div>`;
-        });
-        inner += `</div>`;
-      });
-      if(block.extra) inner += `<p class="tier-extra">${block.extra}</p>`;
-      inner += `</div>`;
-    } else if(block.type === 'note'){
-      inner += `<div class="info-block"><p>${block.text}</p></div>`;
-    }
-  });
+  if (cat.items && cat.items.length > 0) {
+    cat.items.forEach(it => { inner += renderItem(it); });
+  }
 
-  inner += `</div><div class="page-edge-shade"></div></section>`;
+  inner += `</div></section>`;
   return inner;
 }

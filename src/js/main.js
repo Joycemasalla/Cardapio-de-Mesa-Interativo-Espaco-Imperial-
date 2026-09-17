@@ -1,121 +1,62 @@
 import { menuData } from './data/menuData.js';
 import { renderCategory } from './components/MenuComponent.js';
-import { ICONS } from './components/icons.js';
 
-const pagesViewport = document.getElementById('pagesViewport');
+const mainContent = document.getElementById('mainContent');
 const catnavEl = document.getElementById('catnav');
-const pageNumEl = document.getElementById('pageNum');
-const topProgressBar = document.getElementById('topProgressBar');
+const totop = document.getElementById('totop');
 
-// Build pages + TOC pills
+// Build sections + TOC pills
 menuData.forEach((cat, i) => {
-  // Pass index so we can number the chapters
-  pagesViewport.innerHTML += renderCategory(cat, i + 1);
+  mainContent.innerHTML += renderCategory(cat, i + 1);
 
-  const pill = document.createElement('button');
+  const pill = document.createElement('a');
+  pill.href = `#${cat.id}`;
   pill.className = 'cat-pill' + (i === 0 ? ' active' : '');
-  pill.innerHTML = (ICONS[cat.icon] || '') + cat.navLabel;
-  pill.onclick = () => turnTo(i);
+  pill.innerHTML = cat.navLabel;
+  pill.onclick = (e) => {
+    e.preventDefault();
+    const target = document.getElementById(cat.id);
+    if(target) {
+      // scroll to target, minus sticky header height roughly
+      const y = target.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({top: y, behavior: 'smooth'});
+    }
+  };
   catnavEl.appendChild(pill);
 });
 
-const pages = menuData.map(c => document.getElementById(c.id));
+const sections = menuData.map(c => document.getElementById(c.id));
 const pills = Array.from(catnavEl.querySelectorAll('.cat-pill'));
-const prevArrow = document.getElementById('prevArrow');
-const nextArrow = document.getElementById('nextArrow');
-const totop = document.getElementById('totop');
 
-let current = 0;
-let animating = false;
+// Intersection Observer to highlight active category in nav
+const observerOptions = {
+  root: null,
+  rootMargin: '-100px 0px -40% 0px',
+  threshold: 0
+};
 
-pages.forEach((p, i) => { p.style.display = i === 0 ? 'block' : 'none'; });
-
-function updateUI(){
-  pills.forEach((p, i) => p.classList.toggle('active', i === current));
-  if (pageNumEl) pageNumEl.innerText = `Pág. ${current + 1} de ${pages.length}`;
-  if (topProgressBar) topProgressBar.style.width = `${((current + 1) / pages.length) * 100}%`;
-  
-  pills[current].scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
-  prevArrow.disabled = current === 0;
-  nextArrow.disabled = current === pages.length - 1;
-}
-
-function turnTo(index){
-  if(animating || index === current || index < 0 || index >= pages.length) return;
-  animating = true;
-  const forward = index > current;
-  const outgoing = pages[current];
-  const incoming = pages[index];
-
-  incoming.scrollTop = 0;
-  incoming.style.display = 'block';
-  incoming.style.zIndex = '1';
-  incoming.style.transform = 'none';
-
-  outgoing.style.zIndex = '2';
-  outgoing.style.transformOrigin = forward ? 'left center' : 'right center';
-  outgoing.style.transform = 'rotateY(0deg)';
-  outgoing.classList.add('turning');
-
-  // force reflow before animating
-  void outgoing.offsetHeight;
-
-  requestAnimationFrame(() => {
-    outgoing.style.transform = forward ? 'rotateY(-94deg)' : 'rotateY(94deg)';
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      const index = menuData.findIndex(c => c.id === id);
+      if (index !== -1) {
+        pills.forEach((p, i) => p.classList.toggle('active', i === index));
+        pills[index].scrollIntoView({behavior: 'smooth', inline: 'center', block: 'nearest'});
+      }
+    }
   });
+}, observerOptions);
 
-  setTimeout(() => {
-    outgoing.style.display = 'none';
-    outgoing.classList.remove('turning');
-    outgoing.style.transform = '';
-    current = index;
-    animating = false;
-    updateUI();
-  }, 520);
-}
-
-prevArrow.onclick = () => turnTo(current - 1);
-nextArrow.onclick = () => turnTo(current + 1);
-
-// swipe gestures
-let touchStartX = 0, touchStartY = 0, touchActive = false;
-pagesViewport.addEventListener('touchstart', (e) => {
-  touchStartX = e.touches[0].clientX;
-  touchStartY = e.touches[0].clientY;
-  touchActive = true;
-}, {passive:true});
-
-pagesViewport.addEventListener('touchend', (e) => {
-  if(!touchActive) return;
-  touchActive = false;
-  const dx = e.changedTouches[0].clientX - touchStartX;
-  const dy = e.changedTouches[0].clientY - touchStartY;
-  if(Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.4){
-    if(dx < 0) turnTo(current + 1); else turnTo(current - 1);
-  }
-}, {passive:true});
-
-// keyboard nav
-window.addEventListener('keydown', (e) => {
-  if(e.key === 'ArrowRight') turnTo(current + 1);
-  if(e.key === 'ArrowLeft') turnTo(current - 1);
+sections.forEach(sec => {
+  if (sec) observer.observe(sec);
 });
 
+// Scroll to top button visibility
 function onScroll(){
-  totop.classList.toggle('show', window.scrollY > window.innerHeight * 0.9);
+  if (totop) {
+    totop.classList.toggle('show', window.scrollY > window.innerHeight * 0.5);
+  }
 }
 window.addEventListener('scroll', onScroll, {passive:true});
 onScroll();
-updateUI();
-
-// Cover animation
-const btnEnter = document.getElementById('btnEnter');
-if (btnEnter) {
-  btnEnter.addEventListener('click', () => {
-    const hero = document.getElementById('hero');
-    hero.classList.add('open-cover');
-    setTimeout(() => {
-      document.getElementById('book').scrollIntoView({behavior:'smooth', block:'start'});
-    }, 300);
-  });
-}
