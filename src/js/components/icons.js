@@ -1,0 +1,11 @@
+export const ICONS = {
+  hamburguer: '<svg class="cat-icon" viewBox="0 0 24 24" fill="none"><path d="M4 11h16M5 11a7 7 0 0114 0M3 14h18l-1.2 3.6a2 2 0 01-1.9 1.4H6.1a2 2 0 01-1.9-1.4L3 14z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M5 11.5h14" stroke="currentColor" stroke-width="1.6"/></svg>',
+  pizza: '<svg class="cat-icon" viewBox="0 0 24 24" fill="none"><path d="M3 5l9 15 9-15a20 20 0 00-18 0z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="9" r="1" fill="currentColor"/><circle cx="9" cy="12" r="1" fill="currentColor"/><circle cx="15" cy="12" r="1" fill="currentColor"/></svg>',
+  porcoes: '<svg class="cat-icon" viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 0016 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M2 12h20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 8s.5-2 2-2M14 8s.5-2 2-2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>',
+  baguete: '<svg class="cat-icon" viewBox="0 0 24 24" fill="none"><path d="M4 15c0-5 4-9 9-9 4 0 7 2 7 5 0 5-4 9-9 9-4 0-7-2-7-5z" stroke="currentColor" stroke-width="1.6"/><path d="M7 13l10-8M9 16l9-9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>',
+  chapas: '<svg class="cat-icon" viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="14" rx="9" ry="4" stroke="currentColor" stroke-width="1.6"/><path d="M8 7c0-1.5 1-3 1-3M12 6c0-1.5 1-3.5 1-3.5M16 7c0-1.5 1-3 1-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>',
+  picanha: '<svg class="cat-icon" viewBox="0 0 24 24" fill="none"><path d="M5 6c4-2 10-2 14 1-1 5-2 9-7 11C7 16 5 11 5 6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>',
+  bebidas: '<svg class="cat-icon" viewBox="0 0 24 24" fill="none"><path d="M7 3h10l-1.2 6.5a5 5 0 01-9.6 0L5 3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 14v7M9 21h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>'
+};
+
+export const TAG_ICON = '<svg viewBox="0 0 24 24" fill="none"><path d="M4 6a2 2 0 012-2h6l8 8-8 8-8-8V6z" stroke="#241a0e" stroke-width="1.6" stroke-linejoin="round"/><circle cx="8.5" cy="8.5" r="1.2" fill="#241a0e"/></svg>';
