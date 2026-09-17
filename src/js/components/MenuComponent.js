@@ -43,11 +43,16 @@ function renderItem(it){
 export function renderCategory(cat, index){
   let inner = `
   <section class="category" id="${cat.id}">
-    <div class="cat-banner" style="background-image:url('${cat.banner}')">
-      <div class="cat-banner-label">
-        <h2 class="cat-title">${String(index).padStart(2, '0')} &middot; ${cat.title}</h2>
-      </div>
+    <div class="cat-header-row">
+      <h2 class="cat-title">${cat.title}</h2>
+      <span class="cat-index">${String(index).padStart(2, '0')}</span>
     </div>
+    ${cat.banner ? `
+    <div class="cat-banner" style="background-image:url('${cat.banner}')">
+      <div class="cat-banner-label">Imagem ilustrativa</div>
+    </div>
+    ` : ''}
+    ${cat.subtitle ? `<p class="item-desc" style="margin-bottom:16px;">${cat.subtitle}</p>` : ''}
     <div class="cat-body">
   `;
 
