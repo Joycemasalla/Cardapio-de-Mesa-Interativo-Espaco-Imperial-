@@ -1,0 +1,272 @@
+/* Flipbook Container */
+.flipbook-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--bg);
+}
+
+.flip-nav {
+  position: absolute;
+  top: 16px;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 0 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.flip-nav-inner {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  max-width: var(--maxw);
+  padding: 10px 20px;
+  background: rgba(26, 23, 19, 0.85);
+  backdrop-filter: blur(12px);
+  border-radius: 30px;
+  scrollbar-width: none;
+  border: 1px solid var(--line-dark);
+}
+.flip-nav-inner::-webkit-scrollbar { display: none; }
+
+.cat-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--muted-2);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.cat-dot.active {
+  background: var(--gold);
+  transform: scale(1.3);
+}
+
+.flipbook-container {
+  width: 100%;
+  height: 100%;
+  max-width: var(--maxw);
+  position: relative;
+  box-shadow: var(--shadow);
+}
+
+/* Page base styles */
+.page {
+  background-color: var(--page-bg);
+  color: var(--ink);
+  overflow: hidden;
+  box-shadow: inset var(--shadow-page);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.page.--left {
+  border-right: 1px solid rgba(0,0,0,0.1);
+}
+.page.--right {
+  border-left: 1px solid rgba(0,0,0,0.1);
+}
+
+.page-content {
+  padding: 24px;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+/* Cover specific */
+.page-cover {
+  background-color: var(--surface);
+  color: var(--gold);
+}
+
+.page-cover .logo {
+  width: 160px;
+  margin-bottom: 32px;
+}
+
+.page-cover h1 {
+  font-family: var(--header-font);
+  font-size: 36px;
+  margin: 0 0 8px;
+  line-height: 1.1;
+}
+
+.page-cover p {
+  font-family: var(--body-font);
+  color: var(--muted);
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Indicators and Arrows */
+.page-indicator {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  font-size: 13px;
+  color: var(--muted);
+  font-family: var(--body-font);
+  letter-spacing: 2px;
+  background: rgba(0,0,0,0.5);
+  padding: 6px 16px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.flip-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(26, 23, 19, 0.8);
+  border: 1px solid var(--line-dark);
+  color: var(--gold);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  cursor: pointer;
+  transition: all 0.2s;
+  backdrop-filter: blur(4px);
+}
+.flip-arrow:active { transform: translateY(-50%) scale(0.9); }
+.flip-arrow:disabled { opacity: 0; pointer-events: none; }
+.flip-arrow-prev { left: 16px; }
+.flip-arrow-next { right: 16px; }
+
+/* Desktop Tweaks */
+@media (min-width: 768px) {
+  .flip-arrow-prev { left: calc(50% - (var(--maxw) / 2) - 60px); }
+  .flip-arrow-next { right: calc(50% - (var(--maxw) / 2) - 60px); }
+  .flip-nav { top: 32px; }
+}
+
+/* Product Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal-card {
+  background: var(--page-bg);
+  width: 100%;
+  max-width: var(--maxw);
+  border-radius: 24px 24px 0 0;
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+  overflow: hidden;
+  position: relative;
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+.modal-overlay.active .modal-card {
+  transform: translateY(0);
+}
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(0,0,0,0.4);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+}
+.modal-image-wrap {
+  width: 100%;
+  height: 280px;
+  background: var(--surface);
+}
+.modal-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.modal-body {
+  padding: 32px 24px 40px;
+  color: var(--ink);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+}
+.modal-title {
+  font-family: var(--header-font);
+  font-size: 28px;
+  margin: 0 0 6px 0;
+  color: var(--ink);
+}
+.modal-serves {
+  font-size: 13px;
+  color: var(--ember);
+  margin: 0 0 16px 0;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.modal-desc {
+  font-family: var(--body-font);
+  font-size: 16px;
+  color: var(--ink-light);
+  line-height: 1.6;
+  margin: 0 0 32px 0;
+}
+.modal-price-area {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.modal-price {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--gold);
+}
+.modal-price-opt {
+  background: var(--surface);
+  border: 1px solid var(--line-dark);
+  padding: 12px 20px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.modal-price-opt span {
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.modal-price-opt b {
+  font-size: 18px;
+  color: var(--gold);
+  margin-top: 4px;
+}

@@ -1,62 +1,98 @@
 import { menuData } from './data/menuData.js';
-import { renderCategory } from './components/MenuComponent.js';
+import { buildPages } from './pageBuilder.js';
+import { ProductModal } from './components/ProductModal.js';
 
-const mainContent = document.getElementById('mainContent');
-const catnavEl = document.getElementById('catnav');
-const totop = document.getElementById('totop');
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. Constrói as páginas HTML
+  const pageMap = buildPages();
+  
+  // 2. Constrói os dots de navegação
+  const navInner = document.getElementById('flipNavInner');
+  pageMap.forEach((nav, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'cat-dot';
+    dot.title = nav.label;
+    dot.dataset.page = nav.pageIndex;
+    if(i === 0) dot.classList.add('active');
+    
+    dot.addEventListener('click', () => {
+      if(window.pageFlip) {
+        window.pageFlip.turnToPage(nav.pageIndex);
+      }
+    });
+    navInner.appendChild(dot);
+  });
 
-// Build sections + TOC pills
-menuData.forEach((cat, i) => {
-  mainContent.innerHTML += renderCategory(cat, i + 1);
+  const flipbookEl = document.getElementById('flipbook');
+  
+  // 3. Calcula dimensões responsivas
+  const isMobile = window.innerWidth < 768;
+  const bookWidth = isMobile ? window.innerWidth : 480;
+  const bookHeight = window.innerHeight;
 
-  const pill = document.createElement('a');
-  pill.href = `#${cat.id}`;
-  pill.className = 'cat-pill' + (i === 0 ? ' active' : '');
-  pill.innerHTML = cat.navLabel;
-  pill.onclick = (e) => {
-    e.preventDefault();
-    const target = document.getElementById(cat.id);
-    if(target) {
-      // scroll to target, minus sticky header height roughly
-      const y = target.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({top: y, behavior: 'smooth'});
-    }
-  };
-  catnavEl.appendChild(pill);
-});
+  // Usa St.PageFlip do objeto global inserido pelo CDN no index.html
+  const PageFlip = window.St.PageFlip;
 
-const sections = menuData.map(c => document.getElementById(c.id));
-const pills = Array.from(catnavEl.querySelectorAll('.cat-pill'));
+  // 4. Inicializa o PageFlip
+  const pageFlip = new PageFlip(flipbookEl, {
+    width: bookWidth,
+    height: bookHeight,
+    size: "stretch",
+    minWidth: 320,
+    maxWidth: 480,
+    minHeight: 500,
+    maxHeight: 1200,
+    drawShadow: true,
+    showCover: true,
+    usePortrait: isMobile,   // modo retrato em mobile (1 página)
+    mobileScrollSupport: false,
+    maxShadowOpacity: 0.4
+  });
 
-// Intersection Observer to highlight active category in nav
-const observerOptions = {
-  root: null,
-  rootMargin: '-100px 0px -40% 0px',
-  threshold: 0
-};
+  pageFlip.loadFromHTML(document.querySelectorAll('.page'));
+  window.pageFlip = pageFlip; // expõe globalmente para os dots
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const id = entry.target.id;
-      const index = menuData.findIndex(c => c.id === id);
-      if (index !== -1) {
-        pills.forEach((p, i) => p.classList.toggle('active', i === index));
-        pills[index].scrollIntoView({behavior: 'smooth', inline: 'center', block: 'nearest'});
+  // Atualiza UI ao virar a página
+  const currentPageEl = document.getElementById('currentPage');
+  const totalPagesEl = document.getElementById('totalPages');
+  totalPagesEl.textContent = pageFlip.getPageCount();
+
+  const dots = document.querySelectorAll('.cat-dot');
+  
+  pageFlip.on('flip', (e) => {
+    const pageIndex = e.data;
+    currentPageEl.textContent = pageIndex + 1;
+    
+    // Atualiza os pontos de navegação
+    dots.forEach(d => d.classList.remove('active'));
+    let activeDot = dots[0];
+    for(let i = 0; i < pageMap.length; i++) {
+      if (pageIndex >= pageMap[i].pageIndex) {
+        activeDot = dots[i];
       }
     }
+    if(activeDot) activeDot.classList.add('active');
   });
-}, observerOptions);
 
-sections.forEach(sec => {
-  if (sec) observer.observe(sec);
+  // Controles manuais (setas)
+  document.getElementById('prevBtn').addEventListener('click', () => pageFlip.flipPrev());
+  document.getElementById('nextBtn').addEventListener('click', () => pageFlip.flipNext());
+
+  // 5. Inicializa o Modal de Produtos
+  const modal = new ProductModal();
+  
+  document.querySelectorAll('.book-item').forEach(itemEl => {
+    itemEl.addEventListener('click', () => {
+      const catId = itemEl.dataset.cat;
+      const itemId = itemEl.dataset.item;
+      
+      const cat = menuData.find(c => c.id === catId);
+      if (cat) {
+        const product = cat.items.find(p => p.id === itemId);
+        if (product) {
+          modal.open(product, cat);
+        }
+      }
+    });
+  });
 });
-
-// Scroll to top button visibility
-function onScroll(){
-  if (totop) {
-    totop.classList.toggle('show', window.scrollY > window.innerHeight * 0.5);
-  }
-}
-window.addEventListener('scroll', onScroll, {passive:true});
-onScroll();
