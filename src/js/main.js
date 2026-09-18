@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     usePortrait:         true,
     mobileScrollSupport: false,
     swipeDistance:       30,
-    clickEventForward:   true,
+    clickEventForward:   false,
     maxShadowOpacity:    0.35,
     autoSize:            true,
     flippingTime:        700,
@@ -128,43 +128,36 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') closeDrawer();
   });
 
-  // 7. Modal de Produtos — usa delegação de evento no document
-  //    (o StPageFlip reposiciona os elementos, listeners diretos não funcionam)
+  // 7. Modal de Produtos
   const modal = new ProductModal();
 
-  let startX = 0;
-  let startY = 0;
-  let isDragging = false;
-
-  document.addEventListener('pointerdown', (e) => {
-    startX = e.clientX;
-    startY = e.clientY;
-    isDragging = false;
-  }, { capture: true, passive: true });
-
-  document.addEventListener('pointermove', (e) => {
-    if (Math.abs(e.clientX - startX) > 10 || Math.abs(e.clientY - startY) > 10) {
-      isDragging = true;
+  // Bloqueia o PageFlip ANTES que ele detecte o gesto.
+  // O PageFlip captura pointerdown/touchstart para iniciar a virada.
+  // Ao interceptar na fase de captura do document, paramos o evento
+  // antes que chegue ao PageFlip.
+  const blockFlipOnItem = (e) => {
+    if (e.target.closest('.book-item')) {
+      e.stopPropagation();
     }
-  }, { capture: true, passive: true });
+  };
+  document.addEventListener('pointerdown', blockFlipOnItem, true);
+  document.addEventListener('touchstart',  blockFlipOnItem, { capture: true, passive: true });
+  document.addEventListener('mousedown',   blockFlipOnItem, true);
 
-  document.addEventListener('pointerup', (e) => {
+  // Agora o click abre o modal normalmente
+  document.addEventListener('click', (e) => {
     const item = e.target.closest('.book-item');
     if (!item) return;
 
-    if (!isDragging) {
-      // Impede que o PageFlip receba o pointerup e mude a página
-      e.stopPropagation();
-      e.preventDefault();
+    e.stopPropagation();
 
-      const catId  = item.dataset.cat;
-      const itemId = item.dataset.item;
+    const catId  = item.dataset.cat;
+    const itemId = item.dataset.item;
 
-      const cat = menuData.find(c => c.id === catId);
-      if (cat) {
-        const product = cat.items.find(p => p.id === itemId);
-        if (product) modal.open(product, cat);
-      }
+    const cat = menuData.find(c => c.id === catId);
+    if (cat) {
+      const product = cat.items.find(p => p.id === itemId);
+      if (product) modal.open(product, cat);
     }
-  }, { capture: true });
+  }, true);
 });
