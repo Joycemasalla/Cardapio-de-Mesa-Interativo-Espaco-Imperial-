@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Espaço Imperial — Cardápio Digital</title>
-  <meta name="description" content="Cardápio digital interativo do Espaço Imperial — Bar & Restaurante. Folheie como um cardápio real.">
+  <meta name="description" content="Cardápio digital interativo do Espaço Imperial — Bar &amp; Restaurante. Folheie como um cardápio real.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="./src/css/theme.css">
   <link rel="stylesheet" href="./src/css/flipbook.css">
   <link rel="stylesheet" href="./src/css/style.css">
-  
+
   <!-- StPageFlip via CDN -->
   <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
 </head>
@@ -21,48 +21,77 @@
   <!-- Grain texture overlay -->
   <div class="grain"></div>
 
-  <!-- Flipbook Container -->
-  <div class="flipbook-wrapper" id="flipbookWrapper">
-    <!-- Navigation header (appears on top of flipbook) -->
-    <nav class="flip-nav" id="flipNav">
-      <div class="flip-nav-inner" id="flipNavInner"></div>
-    </nav>
+  <!-- ═══ Menu Drawer (categorias) ═══ -->
+  <div class="menu-overlay" id="menuOverlay"></div>
+  <aside class="menu-drawer" id="menuDrawer">
+    <div class="drawer-header">
+      <img src="/logo.png" alt="Espaço Imperial" class="drawer-logo">
+      <span class="drawer-title">Cardápio</span>
+      <button class="drawer-close" id="drawerClose" aria-label="Fechar menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <nav class="drawer-nav" id="drawerList"></nav>
+  </aside>
 
-    <!-- The flipbook itself -->
+  <!-- ═══ Flipbook Wrapper ═══ -->
+  <div class="flipbook-wrapper" id="flipbookWrapper">
+
+    <!-- Barra superior: hamburguer + nav pills -->
+    <header class="flip-nav" id="flipNav">
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menu de categorias">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+          <line x1="3" y1="6"  x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+      <div class="flip-nav-inner" id="flipNavInner"></div>
+    </header>
+
+    <!-- O flipbook -->
     <div class="flipbook-container" id="flipbook"></div>
 
-    <!-- Page indicator -->
+    <!-- Indicador de página -->
     <div class="page-indicator" id="pageIndicator">
       <span id="currentPage">1</span> / <span id="totalPages">1</span>
     </div>
 
-    <!-- Navigation arrows -->
+    <!-- Setas de navegação -->
     <button class="flip-arrow flip-arrow-prev" id="prevBtn" aria-label="Página anterior">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
     <button class="flip-arrow flip-arrow-next" id="nextBtn" aria-label="Próxima página">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
   </div>
 
-  <!-- Product Modal Overlay -->
+  <!-- ═══ Modal de Produto ═══ -->
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal-card" id="modalCard">
       <button class="modal-close" id="modalClose" aria-label="Fechar">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       </button>
       <div class="modal-image-wrap" id="modalImageWrap">
         <img class="modal-image" id="modalImage" src="" alt="">
       </div>
       <div class="modal-body">
-        <h2 class="modal-title" id="modalTitle"></h2>
-        <p class="modal-serves" id="modalServes"></p>
-        <p class="modal-desc" id="modalDesc"></p>
+        <h2 class="modal-title"  id="modalTitle"></h2>
+        <p  class="modal-serves" id="modalServes"></p>
+        <p  class="modal-desc"   id="modalDesc"></p>
         <div class="modal-price-area" id="modalPriceArea"></div>
       </div>
     </div>
   </div>
 
   <script type="module" src="./src/js/main.js"></script>
+
+  <script>
+    // Fecha o drawer pelo botão interno
+    document.getElementById('drawerClose').addEventListener('click', () => {
+      document.getElementById('menuDrawer').classList.remove('open');
+      document.getElementById('menuOverlay').classList.remove('open');
+    });
+  </script>
 </body>
 </html>

@@ -6,116 +6,143 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. Constrói as páginas HTML
   const pageMap = buildPages();
 
-  // 2. Constrói os dots de navegação
+  // 2. Constrói os botões de categoria na nav
   const navInner = document.getElementById('flipNavInner');
   pageMap.forEach((nav, i) => {
-    const dot = document.createElement('button');
-    dot.className = 'cat-dot';
-    dot.title = nav.label;
-    dot.setAttribute('aria-label', nav.label);
-    dot.dataset.page = nav.pageIndex;
-    if (i === 0) dot.classList.add('active');
+    const btn = document.createElement('button');
+    btn.className = 'cat-dot';
+    btn.setAttribute('aria-label', nav.label);
+    btn.dataset.page = nav.pageIndex;
+    btn.textContent = nav.label;
+    if (i === 0) btn.classList.add('active');
 
-    // Cria label de texto para mobile
-    const label = document.createElement('span');
-    label.className = 'cat-dot-label';
-    label.textContent = nav.label;
-    dot.appendChild(label);
-
-    dot.addEventListener('click', () => {
+    btn.addEventListener('click', () => {
       if (window.pageFlip) {
         window.pageFlip.turnToPage(nav.pageIndex);
       }
     });
-    navInner.appendChild(dot);
+    navInner.appendChild(btn);
   });
+
+  // 3. Botão de menu hamburguer — abre/fecha o drawer de categorias
+  const menuBtn  = document.getElementById('menuBtn');
+  const menuDrawer = document.getElementById('menuDrawer');
+  const menuOverlay = document.getElementById('menuOverlay');
+
+  // Popula o drawer com as categorias
+  const drawerList = document.getElementById('drawerList');
+  pageMap.forEach((nav, i) => {
+    const item = document.createElement('button');
+    item.className = 'drawer-item';
+    item.textContent = nav.label;
+    item.dataset.index = i;
+    item.addEventListener('click', () => {
+      if (window.pageFlip) {
+        window.pageFlip.turnToPage(nav.pageIndex);
+      }
+      closeDrawer();
+    });
+    drawerList.appendChild(item);
+  });
+
+  function openDrawer()  {
+    menuDrawer.classList.add('open');
+    menuOverlay.classList.add('open');
+  }
+  function closeDrawer() {
+    menuDrawer.classList.remove('open');
+    menuOverlay.classList.remove('open');
+  }
+
+  menuBtn.addEventListener('click', () => {
+    menuDrawer.classList.contains('open') ? closeDrawer() : openDrawer();
+  });
+  menuOverlay.addEventListener('click', closeDrawer);
 
   const flipbookEl = document.getElementById('flipbook');
 
-  // 3. Calcula dimensões responsivas
+  // 4. Configura e inicializa o PageFlip
   const isMobile = window.innerWidth < 768;
+  const PageFlip  = window.St.PageFlip;
 
-  // No mobile, o livro ocupa toda a tela
-  const bookWidth  = isMobile ? Math.min(window.innerWidth, 480)  : 480;
-  const bookHeight = isMobile ? window.innerHeight                : window.innerHeight;
-
-  // Usa St.PageFlip do objeto global inserido pelo CDN no index.html
-  const PageFlip = window.St.PageFlip;
-
-  // 4. Inicializa o PageFlip
   const pageFlip = new PageFlip(flipbookEl, {
-    width:       bookWidth,
-    height:      bookHeight,
-    size:        'stretch',
-    minWidth:    300,
-    maxWidth:    520,
-    minHeight:   480,
-    maxHeight:   1200,
-    drawShadow:  true,
-    showCover:   true,
-    usePortrait: true,          // sempre retrato (1 página por vez, funciona em mobile e desktop)
-    mobileScrollSupport: true,  // permite scroll dentro da página no mobile
-    swipeDistance: 30,          // sensibilidade do swipe (px)
-    clickEventForward: true,
-    maxShadowOpacity: 0.35,
-    autoSize: true,
-    flippingTime: 700,
+    width:               Math.min(window.innerWidth, 480),
+    height:              window.innerHeight,
+    size:                'stretch',
+    minWidth:            300,
+    maxWidth:            520,
+    minHeight:           480,
+    maxHeight:           1200,
+    drawShadow:          true,
+    showCover:           true,
+    usePortrait:         true,
+    mobileScrollSupport: false,
+    swipeDistance:       30,
+    clickEventForward:   true,
+    maxShadowOpacity:    0.35,
+    autoSize:            true,
+    flippingTime:        700,
   });
 
   pageFlip.loadFromHTML(document.querySelectorAll('.page'));
-  window.pageFlip = pageFlip; // expõe globalmente para os dots
+  window.pageFlip = pageFlip;
 
-  // Atualiza UI ao virar a página
+  // 5. Atualiza indicadores ao virar página
   const currentPageEl = document.getElementById('currentPage');
   const totalPagesEl  = document.getElementById('totalPages');
   totalPagesEl.textContent = pageFlip.getPageCount();
 
   const dots = document.querySelectorAll('.cat-dot');
+  const drawerItems = document.querySelectorAll('.drawer-item');
 
   pageFlip.on('flip', (e) => {
     const pageIndex = e.data;
     currentPageEl.textContent = pageIndex + 1;
 
-    // Atualiza os dots de navegação
-    dots.forEach(d => d.classList.remove('active'));
-    let activeDot = dots[0];
+    // Encontra a categoria ativa
+    let activeIdx = 0;
     for (let i = 0; i < pageMap.length; i++) {
-      if (pageIndex >= pageMap[i].pageIndex) {
-        activeDot = dots[i];
-      }
+      if (pageIndex >= pageMap[i].pageIndex) activeIdx = i;
     }
-    if (activeDot) {
-      activeDot.classList.add('active');
-      // Rola a nav para o dot ativo ficar visível
-      activeDot.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+
+    // Atualiza pills da nav
+    dots.forEach((d, i) => {
+      d.classList.toggle('active', i === activeIdx);
+    });
+    if (dots[activeIdx]) {
+      dots[activeIdx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
+
+    // Atualiza items do drawer
+    drawerItems.forEach((d, i) => d.classList.toggle('active', i === activeIdx));
   });
 
-  // Controles manuais (setas)
+  // 6. Setas de navegação
   document.getElementById('prevBtn').addEventListener('click', () => pageFlip.flipPrev());
   document.getElementById('nextBtn').addEventListener('click', () => pageFlip.flipNext());
 
-  // Suporte a teclado (desktop)
+  // Suporte a teclado
   document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowRight' || e.key === 'ArrowDown') pageFlip.flipNext();
     if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   pageFlip.flipPrev();
+    if (e.key === 'Escape') closeDrawer();
   });
 
-  // 5. Inicializa o Modal de Produtos
+  // 7. Modal de Produtos — usa delegação de evento no document
+  //    (o StPageFlip reposiciona os elementos, listeners diretos não funcionam)
   const modal = new ProductModal();
 
-  document.querySelectorAll('.book-item').forEach(itemEl => {
-    itemEl.addEventListener('click', () => {
-      const catId  = itemEl.dataset.cat;
-      const itemId = itemEl.dataset.item;
+  document.addEventListener('click', (e) => {
+    const item = e.target.closest('.book-item');
+    if (!item) return;
 
-      const cat = menuData.find(c => c.id === catId);
-      if (cat) {
-        const product = cat.items.find(p => p.id === itemId);
-        if (product) {
-          modal.open(product, cat);
-        }
-      }
-    });
+    const catId  = item.dataset.cat;
+    const itemId = item.dataset.item;
+
+    const cat = menuData.find(c => c.id === catId);
+    if (cat) {
+      const product = cat.items.find(p => p.id === itemId);
+      if (product) modal.open(product, cat);
+    }
   });
 });

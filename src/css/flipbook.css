@@ -14,50 +14,68 @@
   background-color: var(--bg);
 }
 
-/* ── Nav de categorias ── */
+/* ══════════════════════════════════════
+   HEADER / NAV DE CATEGORIAS
+══════════════════════════════════════ */
 .flip-nav {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 10;
-  padding: 8px 12px;
+  z-index: 20;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: rgba(16, 13, 10, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line-dark);
 }
 
+/* Botão hamburguer */
+.menu-btn {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--surface-2);
+  border: 1px solid var(--line-dark);
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.menu-btn:active { transform: scale(0.9); }
+
+/* Pills de categoria */
 .flip-nav-inner {
   display: flex;
   gap: 6px;
   align-items: center;
   overflow-x: auto;
-  width: 100%;
-  max-width: 520px;
-  padding: 8px 12px;
-  background: rgba(20, 17, 13, 0.92);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-radius: 30px;
+  flex: 1;
+  padding: 2px 0;
   scrollbar-width: none;
-  border: 1px solid var(--line-dark);
   -webkit-overflow-scrolling: touch;
 }
 .flip-nav-inner::-webkit-scrollbar { display: none; }
 
-/* Dots = botões de texto compactos no mobile */
 .cat-dot {
   flex-shrink: 0;
   background: transparent;
-  border: 1px solid var(--line-dark);
+  border: 1px solid rgba(200,169,110,0.2);
   color: var(--muted);
   font-family: var(--body-font);
   font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.04em;
-  padding: 5px 10px;
+  padding: 5px 11px;
   border-radius: 20px;
   cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s;
   white-space: nowrap;
   line-height: 1;
   -webkit-tap-highlight-color: transparent;
@@ -68,9 +86,132 @@
   color: #1a1200;
   font-weight: 700;
 }
-.cat-dot-label { pointer-events: none; }
 
-/* ── Container do flipbook ── */
+/* ══════════════════════════════════════
+   MENU DRAWER (lateral)
+══════════════════════════════════════ */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.menu-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.menu-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: min(280px, 85vw);
+  height: 100%;
+  background: var(--surface);
+  z-index: 110;
+  transform: translateX(-100%);
+  transition: transform 0.35s cubic-bezier(0.2, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--line-dark);
+  overflow: hidden;
+}
+.menu-drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 16px 16px;
+  border-bottom: 1px solid var(--line-dark);
+}
+.drawer-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+.drawer-title {
+  flex: 1;
+  font-family: var(--header-font);
+  font-size: 18px;
+  color: var(--gold);
+  font-weight: 700;
+}
+.drawer-close {
+  width: 32px;
+  height: 32px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--line-dark);
+  color: var(--muted);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.drawer-nav {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.drawer-item {
+  width: 100%;
+  padding: 13px 16px;
+  background: transparent;
+  border: none;
+  border-radius: 10px;
+  color: var(--muted);
+  font-family: var(--body-font);
+  font-size: 15px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.drawer-item::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--line-dark);
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+.drawer-item:active,
+.drawer-item:hover {
+  background: var(--surface-2);
+  color: var(--gold);
+}
+.drawer-item.active {
+  background: var(--gold-soft);
+  color: var(--gold);
+  font-weight: 700;
+}
+.drawer-item.active::before {
+  background: var(--gold);
+}
+
+/* ══════════════════════════════════════
+   FLIPBOOK CONTAINER + PÁGINAS
+══════════════════════════════════════ */
 .flipbook-container {
   width: 100%;
   height: 100%;
@@ -78,7 +219,6 @@
   box-shadow: var(--shadow);
 }
 
-/* ── Página base ── */
 .page {
   background-color: var(--page-bg);
   color: var(--ink);
@@ -86,7 +226,6 @@
   box-shadow: inset var(--shadow-page);
   border: 1px solid rgba(0,0,0,0.05);
 }
-
 .page.--left  { border-right: 1px solid rgba(0,0,0,0.1); }
 .page.--right { border-left:  1px solid rgba(0,0,0,0.1); }
 
@@ -95,42 +234,42 @@
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
   -webkit-overflow-scrolling: touch;
-  /* Espaço para a nav no topo e o indicador embaixo */
-  padding-top: 60px;
-  padding-bottom: 60px;
+  /* Espaço para a nav (≈54px) e o indicador (≈44px) */
+  padding-top: 62px;
+  padding-bottom: 50px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
 }
 
-/* ── Capa ── */
+/* Capa */
 .page-cover {
   background-color: var(--surface);
   color: var(--gold);
 }
 .page-cover .logo {
-  width: 130px;
-  margin-bottom: 24px;
+  width: 120px;
+  margin-bottom: 20px;
 }
 .page-cover h1 {
   font-family: var(--header-font);
-  font-size: 30px;
+  font-size: 28px;
   margin: 0 0 8px;
   line-height: 1.1;
 }
 .page-cover p {
   font-family: var(--body-font);
   color: var(--muted);
-  font-size: 13px;
+  font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin: 0;
 }
 
-/* ── Banner de categoria dentro do flipbook ── */
+/* Banner de categoria dentro da página */
 .book-cat-banner {
   width: calc(100% + 32px);
-  margin: 10px -16px 12px;
-  height: 120px;
+  margin: 8px -16px 10px;
+  height: 110px;
   background-size: cover;
   background-position: center;
   position: relative;
@@ -141,15 +280,15 @@
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(248, 243, 237, 0) 0%,
-    rgba(248, 243, 237, 0.9) 100%
+    rgba(248,243,237,0) 0%,
+    rgba(248,243,237,0.85) 100%
   );
 }
 
-/* ── Indicador de página ── */
+/* Indicador de página */
 .page-indicator {
   position: absolute;
-  bottom: 14px;
+  bottom: 12px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 5;
@@ -164,21 +303,21 @@
   white-space: nowrap;
 }
 
-/* ── Setas de navegação ── */
+/* Setas */
 .flip-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(26, 23, 19, 0.82);
+  background: rgba(22, 18, 14, 0.85);
   border: 1px solid var(--line-dark);
   color: var(--gold);
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10;
+  z-index: 15;
   cursor: pointer;
   transition: all 0.2s;
   backdrop-filter: blur(4px);
@@ -187,23 +326,23 @@
 }
 .flip-arrow:active  { transform: translateY(-50%) scale(0.88); }
 .flip-arrow:disabled { opacity: 0; pointer-events: none; }
-.flip-arrow-prev { left: 8px; }
-.flip-arrow-next { right: 8px; }
+.flip-arrow-prev { left: 6px; }
+.flip-arrow-next { right: 6px; }
 
-/* ── Desktop ── */
+/* Desktop */
 @media (min-width: 768px) {
-  .flip-nav { top: 20px; padding: 0 16px; }
-  .flip-nav-inner { max-width: var(--maxw); }
-  .cat-dot { font-size: 12px; padding: 6px 14px; }
-  .page-content { padding: 24px; padding-top: 72px; padding-bottom: 60px; }
-  .book-cat-banner { height: 140px; }
-  .flip-arrow-prev { left: calc(50% - (var(--maxw) / 2) - 56px); }
-  .flip-arrow-next { right: calc(50% - (var(--maxw) / 2) - 56px); }
+  .flip-nav         { padding: 10px 16px; }
+  .cat-dot          { font-size: 12px; padding: 6px 14px; }
+  .page-content     { padding: 24px; padding-top: 70px; padding-bottom: 54px; }
+  .book-cat-banner  { height: 130px; }
+  .flip-arrow-prev  { left: calc(50% - 260px - 52px); }
+  .flip-arrow-next  { right: calc(50% - 260px - 52px); }
+  .menu-drawer      { width: 320px; }
 }
 
-/* =====================================================
+/* ══════════════════════════════════════
    MODAL DE PRODUTO
-   ===================================================== */
+══════════════════════════════════════ */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -226,14 +365,14 @@
 .modal-card {
   background: var(--page-bg);
   width: 100%;
-  max-width: var(--maxw);
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
   border-radius: 24px 24px 0 0;
   transform: translateY(100%);
   transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1);
-  overflow: hidden;
   position: relative;
   border-top: 1px solid rgba(0,0,0,0.05);
-  /* Handle bar visual */
 }
 .modal-card::before {
   content: '';
@@ -254,8 +393,8 @@
   color: #fff;
   border: 1px solid rgba(255,255,255,0.2);
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -267,7 +406,7 @@
 
 .modal-image-wrap {
   width: 100%;
-  height: 240px;
+  height: 230px;
   background: var(--surface);
 }
 .modal-image {
@@ -277,30 +416,29 @@
 }
 
 .modal-body {
-  padding: 24px 20px 36px;
+  padding: 22px 20px 40px;
   color: var(--ink);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
 }
 .modal-title {
   font-family: var(--header-font);
   font-size: 26px;
-  margin: 0 0 6px 0;
+  margin: 0 0 6px;
   color: var(--ink);
+  padding-right: 40px;
 }
 .modal-serves {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--ember);
-  margin: 0 0 12px 0;
+  margin: 0 0 12px;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 .modal-desc {
-  font-family: var(--body-font);
   font-size: 15px;
   color: var(--ink-light);
-  line-height: 1.6;
-  margin: 0 0 24px 0;
+  line-height: 1.65;
+  margin: 0 0 24px;
 }
 .modal-price-area {
   display: flex;
@@ -308,14 +446,14 @@
   flex-wrap: wrap;
 }
 .modal-price {
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 700;
   color: var(--gold);
 }
 .modal-price-opt {
   background: var(--surface);
   border: 1px solid var(--line-dark);
-  padding: 10px 16px;
+  padding: 10px 18px;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
