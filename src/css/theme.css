@@ -1,24 +1,23 @@
 :root {
-  --bg: #0d0d0d;
-  --surface: #1a1713;
-  --surface-2: #231f1a;
-  --page-bg: #F8F3ED;
-  --page-bg-alt: #F2ECE4;
-  --gold: #C8A96E;
-  --gold-soft: rgba(200, 169, 110, 0.15);
-  --gold-bright: #E2C992;
-  --ember: #D94625;
-  --ink: #1A1A1A;
-  --ink-light: #3a3530;
+  --bg: #0e0b09; /* preto quente */
+  --surface: #191410;
+  --surface-2: #221b15;
+  --page-bg: #191410; /* Fundo das páginas é escuro agora */
+  --gold: #d9a441;
+  --gold-soft: rgba(217, 164, 65, 0.15);
+  --gold-bright: #e8c583;
+  --ember: #a8402a;
+  --ink: #f3ece0; /* quase-branco quente */
+  --ink-light: #b7a894; /* cinza-areia */
   --muted: #8a7e72;
   --muted-2: #6b6259;
-  --cream: #F8F3ED;
-  --line: rgba(200, 169, 110, 0.15);
-  --line-dark: rgba(200, 169, 110, 0.08);
-  --shadow: 0 8px 32px rgba(0,0,0,0.4);
-  --shadow-page: -4px 0 16px rgba(0,0,0,0.15);
-  --radius: 4px;
+  --cream: #f3e8d3; /* pergaminho para ribbons */
+  --line: rgba(217, 164, 65, 0.25);
+  --line-dark: rgba(217, 164, 65, 0.12);
+  --shadow: 0 8px 32px rgba(0,0,0,0.6);
+  --shadow-page: -4px 0 16px rgba(0,0,0,0.4);
+  --radius: 8px;
   --maxw: 480px;
-  --header-font: 'Playfair Display', Georgia, serif;
-  --body-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --header-font: 'Rye', cursive;
+  --body-font: 'Libre Franklin', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
