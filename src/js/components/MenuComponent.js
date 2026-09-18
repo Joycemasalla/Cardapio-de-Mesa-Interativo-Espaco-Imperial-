@@ -15,7 +15,7 @@ function renderItem(it){
   } else if (it.options && it.options.length > 0) {
     // e.g. "P R$ 42,00 · M R$ 48,00 · G R$ 53,00"
     const optsStr = it.options.map(o => `${o.label} ${money(o.price)}`).join(' &middot; ');
-    priceHtml = `<div class="item-desc" style="color:var(--gold-soft);font-weight:600;margin-top:2px;">${optsStr}</div>`;
+    priceHtml = `<div class="item-desc" style="color:var(--gold);font-weight:700;margin-top:2px;">${optsStr}</div>`;
   } else {
     priceHtml = `<div class="item-price" style="color:var(--muted-2);font-size:12px;font-style:italic;">Consulte</div>`;
   }

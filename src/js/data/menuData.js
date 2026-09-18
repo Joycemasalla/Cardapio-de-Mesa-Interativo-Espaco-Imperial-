@@ -2,7 +2,7 @@ export const menuData = [
   {
     "id": "artesanais",
     "title": "Hambúrguer artesanais",
-    "navLabel": "Hambúrguer",
+    "navLabel": "Artesanais",
     "banner": "/assets/artesanais-DXdpwsvT.jpg",
     "items": [
       {
@@ -98,7 +98,7 @@ export const menuData = [
   {
     "id": "tradicionais",
     "title": "Hambúrguer tradicionais",
-    "navLabel": "Hambúrguer",
+    "navLabel": "Tradicionais",
     "banner": "/assets/tradicionais-BgCtH9KS.jpg",
     "items": [
       {
