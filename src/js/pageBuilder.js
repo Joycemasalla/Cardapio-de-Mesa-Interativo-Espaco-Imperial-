@@ -60,31 +60,61 @@ export function buildPages() {
       }).join('');
 
       const isFirstPage = p === 0;
+      const pageNum    = p + 1;
+      const totalPagesInCat = totalPages;
 
-      // Banner da categoria — exibido apenas na primeira página da categoria
-      const bannerHtml = (isFirstPage && cat.banner) ? `
-        <div class="book-cat-banner" style="background-image: url('${cat.banner}')">
-          <div class="book-cat-banner-overlay"></div>
-        </div>
-      ` : '';
+      // Banner da categoria — na PRIMEIRA página: full com título dentro
+      // Nas demais: banner menor sem título
+      let bannerHtml = '';
+      if (cat.banner) {
+        if (isFirstPage) {
+          bannerHtml = `
+            <div class="book-cat-banner" style="background-image: url('${cat.banner}')">
+              <div class="book-cat-banner-scrim"></div>
+              <div class="book-cat-banner-text">
+                <span class="book-cat-banner-label">Seleção Imperial</span>
+                <h2 class="book-cat-title">${cat.title}</h2>
+                ${cat.subtitle ? `<p class="book-cat-sub">${cat.subtitle}</p>` : ''}
+              </div>
+            </div>
+          `;
+        } else {
+          bannerHtml = `
+            <div class="book-cat-banner book-cat-banner--small" style="background-image: url('${cat.banner}')">
+              <div class="book-cat-banner-scrim"></div>
+              <div class="book-cat-banner-text">
+                <h2 class="book-cat-title">${cat.title} <span class="book-cat-cont">(cont.)</span></h2>
+                <p class="book-cat-page-info">Parte ${pageNum} de ${totalPagesInCat}</p>
+              </div>
+            </div>
+          `;
+        }
+      } else {
+        // Sem banner: título simples fora
+        if (isFirstPage) {
+          bannerHtml = `
+            <div class="book-cat-no-banner">
+              <h2 class="book-cat-title-plain">${cat.title}</h2>
+              ${cat.subtitle ? `<p class="book-cat-sub-plain">${cat.subtitle}</p>` : ''}
+            </div>
+          `;
+        } else {
+          bannerHtml = `
+            <div class="book-cat-no-banner">
+              <h2 class="book-cat-title-plain" style="font-size: 16px; opacity:0.8">${cat.title} <span class="book-cat-cont">(cont.)</span></h2>
+            </div>
+          `;
+        }
+      }
 
       pagesHtml += `
         <div class="page">
-          <div class="page-content">
-            <div class="page-ornament">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 6a2 2 0 012-2h6l8 8-8 8-8-8V6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="8.5" cy="8.5" r="1.2" fill="currentColor"/></svg>
-            </div>
-            ${isFirstPage ? `
-              <h2 class="book-cat-title">${cat.title}</h2>
-              ${cat.subtitle ? `<p class="book-cat-sub">${cat.subtitle}</p>` : ''}
-              ${bannerHtml}
-            ` : `
-              <h2 class="book-cat-title" style="font-size: 18px; opacity: 0.8;">${cat.title} <span style="font-size: 13px; font-weight: normal;">(cont.)</span></h2>
-              <div style="height: 8px;"></div>
-            `}
+          <div class="page-content page-content--with-banner">
+            ${bannerHtml}
             <div class="book-items-list">
               ${itemsHtml}
             </div>
+            <div class="book-page-footer">Toque para ver detalhes</div>
           </div>
         </div>
       `;
