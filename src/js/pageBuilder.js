@@ -41,30 +41,20 @@ export function buildPages() {
         if (it.price !== null && it.price !== undefined) {
           priceHtml = `<div class="book-item-price">R$ ${it.price.toFixed(2).replace('.', ',')}</div>`;
         } else if (it.options && it.options.length > 0) {
-          priceHtml = `<div class="book-item-price" style="font-size: 13px;">Vários tamanhos</div>`;
+          priceHtml = `<div class="book-item-price" style="font-size: 12px;">Vários tamanhos</div>`;
         } else {
-          priceHtml = `<div class="book-item-price" style="font-size: 13px; font-weight: 400; color: var(--muted-2);">Consulte</div>`;
+          priceHtml = `<div class="book-item-price" style="font-size: 12px; font-weight: 400; color: var(--muted-2);">Consulte</div>`;
         }
-
-        const hasDesc = !!it.desc;
 
         return `
           <div class="book-item" data-cat="${cat.id}" data-item="${it.id}">
-            <div class="book-item-header">
-              <h3 class="book-item-name">${it.name}</h3>
-              <div class="book-item-dots"></div>
-              ${priceHtml}
-            </div>
-            ${hasDesc ? `
-              <div class="book-item-desc-wrapper">
-                <div class="book-item-desc-inner">
-                  <p class="book-item-desc">
-                    ${it.desc}
-                    <svg class="book-item-chevron" viewBox="0 0 24 24" fill="none"><path d="M19 9l-7 7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </p>
-                </div>
+            <div class="book-item-content">
+              <div class="book-item-header">
+                <h3 class="book-item-name">${it.name}</h3>
+                ${priceHtml}
               </div>
-            ` : ''}
+              ${it.desc ? `<p class="book-item-desc">${it.desc}</p>` : ''}
+            </div>
           </div>
         `;
       }).join('');
@@ -81,19 +71,16 @@ export function buildPages() {
       pagesHtml += `
         <div class="page">
           <div class="page-content">
+            <div class="page-ornament">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 6a2 2 0 012-2h6l8 8-8 8-8-8V6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="8.5" cy="8.5" r="1.2" fill="currentColor"/></svg>
+            </div>
             ${isFirstPage ? `
-              ${bannerHtml}
-              <div class="page-ornament">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M4 6a2 2 0 012-2h6l8 8-8 8-8-8V6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="8.5" cy="8.5" r="1.2" fill="currentColor"/></svg>
-              </div>
-              <div class="book-cat-title-wrapper">
-                <h2 class="book-cat-title">${cat.title}</h2>
-              </div>
+              <h2 class="book-cat-title">${cat.title}</h2>
               ${cat.subtitle ? `<p class="book-cat-sub">${cat.subtitle}</p>` : ''}
+              ${bannerHtml}
             ` : `
-              <div class="book-cat-title-wrapper" style="transform: scale(0.9); margin-top: 8px;">
-                <h2 class="book-cat-title" style="opacity: 0.9;">${cat.title} <span style="font-size: 14px; font-family: var(--body-font); font-weight: 300;">(cont.)</span></h2>
-              </div>
+              <h2 class="book-cat-title" style="font-size: 18px; opacity: 0.8;">${cat.title} <span style="font-size: 13px; font-weight: normal;">(cont.)</span></h2>
+              <div style="height: 8px;"></div>
             `}
             <div class="book-items-list">
               ${itemsHtml}
@@ -110,8 +97,8 @@ export function buildPages() {
     <div class="page page-cover">
       <div class="page-content" style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;">
         <img src="/public/logo.png" alt="Espaço Imperial" class="logo" style="width: 100px; opacity: 0.5;">
-        <h2 style="font-family: var(--header-font); font-size: 28px; color: var(--gold); margin-top: 32px;">Obrigado!</h2>
-        <p style="text-transform: none; margin-top: 12px; letter-spacing: 0.05em; color: var(--ink-light);">Agradecemos a preferência.</p>
+        <h2 style="font-family: var(--header-font); font-size: 24px; color: var(--gold); margin-top: 24px;">Obrigado!</h2>
+        <p style="text-transform: none; margin-top: 8px;">Agradecemos a preferência.</p>
       </div>
     </div>
   `;
