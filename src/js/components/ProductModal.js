@@ -27,6 +27,11 @@ export class ProductModal {
   open(product, category) {
     this.title.textContent = product.name;
     this.desc.textContent  = product.desc || '';
+    
+    const catTextEl = document.getElementById('modalCategoryText');
+    if (catTextEl) {
+      catTextEl.textContent = category.title || '';
+    }
 
     if (product.serves) {
       this.serves.textContent  = `🍽️ Serve: ${product.serves}`;
