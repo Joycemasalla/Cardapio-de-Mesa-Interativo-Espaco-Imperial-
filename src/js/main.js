@@ -136,6 +136,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const item = e.target.closest('.book-item');
     if (!item) return;
 
+    // Impede que o PageFlip capture o clique e mude a página
+    e.stopPropagation();
+    e.preventDefault();
+
     const catId  = item.dataset.cat;
     const itemId = item.dataset.item;
 
@@ -144,5 +148,5 @@ document.addEventListener('DOMContentLoaded', () => {
       const product = cat.items.find(p => p.id === itemId);
       if (product) modal.open(product, cat);
     }
-  });
+  }, true); // Fase de captura (capturing)
 });
