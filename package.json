@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "echo \"No build step required\"",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
