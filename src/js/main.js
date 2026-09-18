@@ -132,21 +132,39 @@ document.addEventListener('DOMContentLoaded', () => {
   //    (o StPageFlip reposiciona os elementos, listeners diretos não funcionam)
   const modal = new ProductModal();
 
-  document.addEventListener('click', (e) => {
+  let startX = 0;
+  let startY = 0;
+  let isDragging = false;
+
+  document.addEventListener('pointerdown', (e) => {
+    startX = e.clientX;
+    startY = e.clientY;
+    isDragging = false;
+  }, { capture: true, passive: true });
+
+  document.addEventListener('pointermove', (e) => {
+    if (Math.abs(e.clientX - startX) > 10 || Math.abs(e.clientY - startY) > 10) {
+      isDragging = true;
+    }
+  }, { capture: true, passive: true });
+
+  document.addEventListener('pointerup', (e) => {
     const item = e.target.closest('.book-item');
     if (!item) return;
 
-    // Impede que o PageFlip capture o clique e mude a página
-    e.stopPropagation();
-    e.preventDefault();
+    if (!isDragging) {
+      // Impede que o PageFlip receba o pointerup e mude a página
+      e.stopPropagation();
+      e.preventDefault();
 
-    const catId  = item.dataset.cat;
-    const itemId = item.dataset.item;
+      const catId  = item.dataset.cat;
+      const itemId = item.dataset.item;
 
-    const cat = menuData.find(c => c.id === catId);
-    if (cat) {
-      const product = cat.items.find(p => p.id === itemId);
-      if (product) modal.open(product, cat);
+      const cat = menuData.find(c => c.id === catId);
+      if (cat) {
+        const product = cat.items.find(p => p.id === itemId);
+        if (product) modal.open(product, cat);
+      }
     }
-  }, true); // Fase de captura (capturing)
+  }, { capture: true });
 });
