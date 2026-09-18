@@ -3,7 +3,7 @@ export const menuData = [
     "id": "artesanais",
     "title": "Hambúrgueres Artesanais",
     "navLabel": "Artesanais",
-    "banner": "/assets/artesanais-DXdpwsvT.jpg",
+    "banner": "/public/assets/artesanais-DXdpwsvT.jpg",
     "items": [
       { "id": "cheddar-mc-melt", "name": "Cheddar MC Melt", "avatar": "CM", "price": 17, "options": [], "desc": "Pão brioche, bife artesanal de boi (120g), cheddar, cebola caramelizada." },
       { "id": "chicken-burguer", "name": "Chicken Burguer", "avatar": "CB", "price": 18, "options": [], "desc": "Pão brioche, bife artesanal de frango (120g), queijo prato, alface, tomate e molho especial." },
@@ -22,7 +22,7 @@ export const menuData = [
     "id": "tradicionais",
     "title": "Hambúrgueres Tradicionais",
     "navLabel": "Tradicionais",
-    "banner": "/assets/tradicionais-BgCtH9KS.jpg",
+    "banner": "/public/assets/tradicionais-BgCtH9KS.jpg",
     "items": [
       { "id": "misto", "name": "Misto", "avatar": "M", "price": 11, "options": [], "desc": "Pão de forma, presunto e muçarela." },
       { "id": "hamburguer", "name": "Hambúrguer", "avatar": "H", "price": 13, "options": [], "desc": "Pão brioche, bife caseiro. Acompanha alface, milho, tomate e batata." },
@@ -41,7 +41,7 @@ export const menuData = [
     "id": "pizzas",
     "title": "Pizzas",
     "navLabel": "Pizzas",
-    "banner": "/assets/pizzas-D818a_Fl.jpg",
+    "banner": "/public/assets/pizzas-D818a_Fl.jpg",
     "subtitle": "Tamanhos: Pequena R$ 42,00 · Média R$ 48,00 · Grande R$ 53,00",
     "items": [
       { "id": "portuguesa", "name": "Portuguesa", "avatar": "P", "price": null, "options": [{"label":"P","price":42},{"label":"M","price":48},{"label":"G","price":53}], "desc": "Muçarela, calabresa, tomate, pimentão, presunto, ovo, cebola, azeitona e orégano." },
@@ -67,7 +67,7 @@ export const menuData = [
     "id": "pizzas-doces",
     "title": "Pizzas Doces",
     "navLabel": "Pizzas Doces",
-    "banner": "/assets/pizzas-D818a_Fl.jpg",
+    "banner": "/public/assets/pizzas-D818a_Fl.jpg",
     "subtitle": "Tamanhos: Pequena R$ 42,00 · Média R$ 48,00 · Grande R$ 53,00",
     "items": [
       { "id": "banana-doce-leite", "name": "Banana c/ Doce de Leite", "avatar": "BD", "price": null, "options": [{"label":"P","price":42},{"label":"M","price":48},{"label":"G","price":53}], "desc": "Muçarela, banana, doce de leite e canela." },
@@ -80,7 +80,7 @@ export const menuData = [
     "id": "porcoes",
     "title": "Porções",
     "navLabel": "Porções",
-    "banner": "/assets/porcoes-NbD1ynMd.jpg",
+    "banner": "/public/assets/porcoes-NbD1ynMd.jpg",
     "items": [
       { "id": "batata", "name": "Batata", "avatar": "B", "price": 20, "options": [], "desc": "Porção generosa de batatas fritas crocantes." },
       { "id": "mandioca-frita", "name": "Mandioca Frita", "avatar": "MF", "price": 20, "options": [], "desc": "Porção de mandioca frita, crocante por fora e macia por dentro." },
@@ -116,7 +116,7 @@ export const menuData = [
     "id": "baguete",
     "title": "Baguete",
     "navLabel": "Baguete",
-    "banner": "/assets/baguete-43k5KYjR.jpg",
+    "banner": "/public/assets/baguete-43k5KYjR.jpg",
     "items": [
       { "id": "baguete-churrasco", "name": "Baguete de Churrasco", "avatar": "BC", "price": null, "options": [{"label":"1 Frango","price":16},{"label":"Boi+Frango","price":23},{"label":"2 Boi","price":23}], "desc": "Pão francês, maionese de alho, churrasco e muçarela." },
       { "id": "baguete-costela", "name": "Baguete de Costela", "avatar": "BC", "price": 18, "options": [], "desc": "Pão francês, costela desfiada, cebola, catupiry e muçarela." }
@@ -126,7 +126,7 @@ export const menuData = [
     "id": "chapas",
     "title": "Chapas",
     "navLabel": "Chapas",
-    "banner": "/assets/chapas-Cvu1J14F.jpg",
+    "banner": "/public/assets/chapas-Cvu1J14F.jpg",
     "items": [
       { "id": "chapa-mista", "name": "Chapa Mista", "avatar": "CM", "price": 95, "options": [], "desc": "Frango grelhado, contra filé, calabresa e batata frita. Serve 2 a 3 pessoas.", "serves": "2 a 3 pessoas" },
       { "id": "especial-casa-2p", "name": "Especial da Casa", "avatar": "EC", "price": 120, "options": [], "desc": "300g de picanha, 200g mandioca na manteiga, 200g de batata frita.", "serves": "2 pessoas" },
@@ -137,7 +137,7 @@ export const menuData = [
     "id": "picanha-na-pedra",
     "title": "Picanha na Pedra",
     "navLabel": "Picanha",
-    "banner": "/assets/picanha-CZ-Cf9uu.jpg",
+    "banner": "/public/assets/picanha-CZ-Cf9uu.jpg",
     "items": [
       { "id": "picanha-simples-2p", "name": "Picanha Simples", "avatar": "PS", "price": 120, "options": [], "desc": "Picanha (500g) + Farofa + Vinagrete.", "serves": "2 pessoas" },
       { "id": "picanha-completa-2p", "name": "Picanha Completa", "avatar": "PC", "price": 130, "options": [], "desc": "Picanha (500g) + Farofa + Vinagrete + Arroz + Batata frita.", "serves": "2 pessoas" },
@@ -149,7 +149,7 @@ export const menuData = [
     "id": "bebidas",
     "title": "Bebidas",
     "navLabel": "Bebidas",
-    "banner": "/assets/bebidas-BBSMWZWo.jpg",
+    "banner": "/public/assets/bebidas-BBSMWZWo.jpg",
     "items": [
       { "id": "agua-sem-gas", "name": "Água s/ Gás", "avatar": "AS", "price": 3, "options": [], "desc": "Água mineral sem gás." },
       { "id": "agua-com-gas", "name": "Água c/ Gás", "avatar": "AC", "price": 3, "options": [], "desc": "Água mineral com gás." },

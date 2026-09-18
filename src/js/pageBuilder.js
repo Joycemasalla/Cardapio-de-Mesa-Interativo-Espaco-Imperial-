@@ -11,7 +11,7 @@ export function buildPages() {
   pagesHtml += `
     <div class="page page-cover">
       <div class="page-content" style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;">
-        <img src="/logo.png" alt="Espaço Imperial" class="logo">
+        <img src="/public/logo.png" alt="Espaço Imperial" class="logo">
         <h1>Espaço Imperial</h1>
         <p>Cardápio Digital</p>
         <div style="margin-top: 48px; color: var(--gold); font-size: 11px; display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0.8; text-transform: uppercase; letter-spacing: 2px;">
@@ -96,7 +96,7 @@ export function buildPages() {
   pagesHtml += `
     <div class="page page-cover">
       <div class="page-content" style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;">
-        <img src="/logo.png" alt="Espaço Imperial" class="logo" style="width: 100px; opacity: 0.5;">
+        <img src="/public/logo.png" alt="Espaço Imperial" class="logo" style="width: 100px; opacity: 0.5;">
         <h2 style="font-family: var(--header-font); font-size: 24px; color: var(--gold); margin-top: 24px;">Obrigado!</h2>
         <p style="text-transform: none; margin-top: 8px;">Agradecemos a preferência.</p>
       </div>

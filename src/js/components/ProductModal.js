@@ -37,7 +37,7 @@ export class ProductModal {
 
     // Tenta imagem específica do produto; se não existir, usa o banner da categoria; se não, oculta a área de imagem
     const categoryBanner = category.banner || null;
-    const productImgSrc  = `/images/${product.id}.jpg`;
+    const productImgSrc  = `/public/images/${product.id}.jpg`;
 
     this.img.src = productImgSrc;
     this.imgWrap.style.display = 'block';
@@ -45,7 +45,7 @@ export class ProductModal {
     this.img.onerror = () => {
       if (categoryBanner) {
         // Usa o banner da categoria como fallback
-        this.img.src    = categoryBanner;
+        this.img.src    = category.banner; // já tem /public/ no caminho
         this.img.onerror = () => {
           // Sem imagem disponível — oculta a área
           this.imgWrap.style.display = 'none';
