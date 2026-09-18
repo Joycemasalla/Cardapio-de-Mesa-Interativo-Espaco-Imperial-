@@ -1,4 +1,7 @@
-/* Flipbook Container */
+/* ===================================================
+   FLIPBOOK — Layout base (mobile-first)
+   =================================================== */
+
 .flipbook-wrapper {
   position: relative;
   width: 100vw;
@@ -11,53 +14,71 @@
   background-color: var(--bg);
 }
 
+/* ── Nav de categorias ── */
 .flip-nav {
   position: absolute;
-  top: 16px;
+  top: 0;
   left: 0;
   width: 100%;
   z-index: 10;
-  padding: 0 16px;
+  padding: 8px 12px;
   display: flex;
   justify-content: center;
 }
 
 .flip-nav-inner {
   display: flex;
-  gap: 12px;
+  gap: 6px;
+  align-items: center;
   overflow-x: auto;
-  max-width: var(--maxw);
-  padding: 10px 20px;
-  background: rgba(26, 23, 19, 0.85);
-  backdrop-filter: blur(12px);
+  width: 100%;
+  max-width: 520px;
+  padding: 8px 12px;
+  background: rgba(20, 17, 13, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-radius: 30px;
   scrollbar-width: none;
   border: 1px solid var(--line-dark);
+  -webkit-overflow-scrolling: touch;
 }
 .flip-nav-inner::-webkit-scrollbar { display: none; }
 
+/* Dots = botões de texto compactos no mobile */
 .cat-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--muted-2);
+  flex-shrink: 0;
+  background: transparent;
+  border: 1px solid var(--line-dark);
+  color: var(--muted);
+  font-family: var(--body-font);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 5px 10px;
+  border-radius: 20px;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  line-height: 1;
+  -webkit-tap-highlight-color: transparent;
 }
 .cat-dot.active {
   background: var(--gold);
-  transform: scale(1.3);
+  border-color: var(--gold);
+  color: #1a1200;
+  font-weight: 700;
 }
+.cat-dot-label { pointer-events: none; }
 
+/* ── Container do flipbook ── */
 .flipbook-container {
   width: 100%;
   height: 100%;
-  max-width: var(--maxw);
   position: relative;
   box-shadow: var(--shadow);
 }
 
-/* Page base styles */
+/* ── Página base ── */
 .page {
   background-color: var(--page-bg);
   color: var(--ink);
@@ -66,75 +87,94 @@
   border: 1px solid rgba(0,0,0,0.05);
 }
 
-.page.--left {
-  border-right: 1px solid rgba(0,0,0,0.1);
-}
-.page.--right {
-  border-left: 1px solid rgba(0,0,0,0.1);
-}
+.page.--left  { border-right: 1px solid rgba(0,0,0,0.1); }
+.page.--right { border-left:  1px solid rgba(0,0,0,0.1); }
 
 .page-content {
-  padding: 24px;
+  padding: 16px;
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  -webkit-overflow-scrolling: touch;
+  /* Espaço para a nav no topo e o indicador embaixo */
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
-/* Cover specific */
+/* ── Capa ── */
 .page-cover {
   background-color: var(--surface);
   color: var(--gold);
 }
-
 .page-cover .logo {
-  width: 160px;
-  margin-bottom: 32px;
+  width: 130px;
+  margin-bottom: 24px;
 }
-
 .page-cover h1 {
   font-family: var(--header-font);
-  font-size: 36px;
+  font-size: 30px;
   margin: 0 0 8px;
   line-height: 1.1;
 }
-
 .page-cover p {
   font-family: var(--body-font);
   color: var(--muted);
-  font-size: 14px;
+  font-size: 13px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin: 0;
 }
 
-/* Indicators and Arrows */
+/* ── Banner de categoria dentro do flipbook ── */
+.book-cat-banner {
+  width: calc(100% + 32px);
+  margin: 10px -16px 12px;
+  height: 120px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+.book-cat-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(248, 243, 237, 0) 0%,
+    rgba(248, 243, 237, 0.9) 100%
+  );
+}
+
+/* ── Indicador de página ── */
 .page-indicator {
   position: absolute;
-  bottom: 24px;
+  bottom: 14px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 5;
-  font-size: 13px;
+  font-size: 12px;
   color: var(--muted);
   font-family: var(--body-font);
   letter-spacing: 2px;
-  background: rgba(0,0,0,0.5);
-  padding: 6px 16px;
+  background: rgba(0,0,0,0.55);
+  padding: 5px 14px;
   border-radius: 20px;
   backdrop-filter: blur(4px);
+  white-space: nowrap;
 }
 
+/* ── Setas de navegação ── */
 .flip-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(26, 23, 19, 0.8);
+  background: rgba(26, 23, 19, 0.82);
   border: 1px solid var(--line-dark);
   color: var(--gold);
   border-radius: 50%;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -142,25 +182,34 @@
   cursor: pointer;
   transition: all 0.2s;
   backdrop-filter: blur(4px);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
-.flip-arrow:active { transform: translateY(-50%) scale(0.9); }
+.flip-arrow:active  { transform: translateY(-50%) scale(0.88); }
 .flip-arrow:disabled { opacity: 0; pointer-events: none; }
-.flip-arrow-prev { left: 16px; }
-.flip-arrow-next { right: 16px; }
+.flip-arrow-prev { left: 8px; }
+.flip-arrow-next { right: 8px; }
 
-/* Desktop Tweaks */
+/* ── Desktop ── */
 @media (min-width: 768px) {
-  .flip-arrow-prev { left: calc(50% - (var(--maxw) / 2) - 60px); }
-  .flip-arrow-next { right: calc(50% - (var(--maxw) / 2) - 60px); }
-  .flip-nav { top: 32px; }
+  .flip-nav { top: 20px; padding: 0 16px; }
+  .flip-nav-inner { max-width: var(--maxw); }
+  .cat-dot { font-size: 12px; padding: 6px 14px; }
+  .page-content { padding: 24px; padding-top: 72px; padding-bottom: 60px; }
+  .book-cat-banner { height: 140px; }
+  .flip-arrow-prev { left: calc(50% - (var(--maxw) / 2) - 56px); }
+  .flip-arrow-next { right: calc(50% - (var(--maxw) / 2) - 56px); }
 }
 
-/* Product Modal */
+/* =====================================================
+   MODAL DE PRODUTO
+   ===================================================== */
 .modal-overlay {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.85);
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   z-index: 1000;
   display: flex;
   align-items: flex-end;
@@ -173,6 +222,7 @@
   opacity: 1;
   pointer-events: auto;
 }
+
 .modal-card {
   background: var(--page-bg);
   width: 100%;
@@ -183,10 +233,19 @@
   overflow: hidden;
   position: relative;
   border-top: 1px solid rgba(0,0,0,0.05);
+  /* Handle bar visual */
 }
-.modal-overlay.active .modal-card {
-  transform: translateY(0);
+.modal-card::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 4px;
+  background: rgba(0,0,0,0.15);
+  border-radius: 2px;
+  margin: 12px auto 0;
 }
+.modal-overlay.active .modal-card { transform: translateY(0); }
+
 .modal-close {
   position: absolute;
   top: 16px;
@@ -203,10 +262,12 @@
   z-index: 10;
   cursor: pointer;
   backdrop-filter: blur(8px);
+  -webkit-tap-highlight-color: transparent;
 }
+
 .modal-image-wrap {
   width: 100%;
-  height: 280px;
+  height: 240px;
   background: var(--surface);
 }
 .modal-image {
@@ -214,59 +275,60 @@
   height: 100%;
   object-fit: cover;
 }
+
 .modal-body {
-  padding: 32px 24px 40px;
+  padding: 24px 20px 36px;
   color: var(--ink);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
 }
 .modal-title {
   font-family: var(--header-font);
-  font-size: 28px;
+  font-size: 26px;
   margin: 0 0 6px 0;
   color: var(--ink);
 }
 .modal-serves {
   font-size: 13px;
   color: var(--ember);
-  margin: 0 0 16px 0;
+  margin: 0 0 12px 0;
   font-weight: 600;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 .modal-desc {
   font-family: var(--body-font);
-  font-size: 16px;
+  font-size: 15px;
   color: var(--ink-light);
   line-height: 1.6;
-  margin: 0 0 32px 0;
+  margin: 0 0 24px 0;
 }
 .modal-price-area {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 .modal-price {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 700;
   color: var(--gold);
 }
 .modal-price-opt {
   background: var(--surface);
   border: 1px solid var(--line-dark);
-  padding: 12px 20px;
+  padding: 10px 16px;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .modal-price-opt span {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 .modal-price-opt b {
-  font-size: 18px;
+  font-size: 17px;
   color: var(--gold);
   margin-top: 4px;
 }
