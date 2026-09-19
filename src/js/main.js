@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     showCover:           true,
     usePortrait:         true,
     mobileScrollSupport: false,
-    swipeDistance:       30,
+    swipeDistance:       20,
     clickEventForward:   false,
     maxShadowOpacity:    0.35,
     autoSize:            true,
@@ -131,18 +131,41 @@ document.addEventListener('DOMContentLoaded', () => {
   // 7. Modal de Produtos
   const modal = new ProductModal();
 
-  // Bloqueia o PageFlip ANTES que ele detecte o gesto.
-  // O PageFlip captura pointerdown/touchstart para iniciar a virada.
-  // Ao interceptar na fase de captura do document, paramos o evento
-  // antes que chegue ao PageFlip.
-  const blockFlipOnItem = (e) => {
+  // Bloqueia o PageFlip SOMENTE quando o toque começa em cima de um item.
+  // Usamos uma flag para rastrear se o gesto começou em um item.
+  // Desta forma, arrastar fora dos itens continua virando a página normalmente.
+  let touchOnItem = false;
+  let touchStartX = 0;
+  let touchStartY = 0;
+
+  document.addEventListener('pointerdown', (e) => {
     if (e.target.closest('.book-item')) {
+      touchOnItem = true;
+      touchStartX = e.clientX;
+      touchStartY = e.clientY;
+      e.stopPropagation();
+    } else {
+      touchOnItem = false;
+    }
+  }, true);
+
+  document.addEventListener('pointermove', (e) => {
+    if (!touchOnItem) return;
+    const dx = Math.abs(e.clientX - touchStartX);
+    const dy = Math.abs(e.clientY - touchStartY);
+    // Se arrastou mais de 10px horizontalmente, libera para o PageFlip virar
+    if (dx > 10 && dx > dy) {
+      touchOnItem = false;
+      // Não para propagação — PageFlip vai capturar
+    } else if (dx > 4 || dy > 4) {
       e.stopPropagation();
     }
-  };
-  document.addEventListener('pointerdown', blockFlipOnItem, true);
-  document.addEventListener('touchstart',  blockFlipOnItem, { capture: true, passive: true });
-  document.addEventListener('mousedown',   blockFlipOnItem, true);
+  }, true);
+
+  document.addEventListener('pointerup', () => { touchOnItem = false; }, true);
+  document.addEventListener('mousedown', (e) => {
+    if (e.target.closest('.book-item')) e.stopPropagation();
+  }, true);
 
   // Agora o click abre o modal normalmente
   document.addEventListener('click', (e) => {

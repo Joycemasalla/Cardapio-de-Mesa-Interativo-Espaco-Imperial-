@@ -40,27 +40,35 @@ export class ProductModal {
       this.serves.style.display = 'none';
     }
 
-    // Tenta imagem específica do produto; se não existir, usa o banner da categoria; se não, oculta a área de imagem
+    // Usa imagem do produto (campo image), ou banner da categoria como fallback
     const categoryBanner = category.banner || null;
-    const productImgSrc  = `/public/images/${product.id}.jpg`;
+    const productImgSrc  = product.image || null;
 
-    this.img.src = productImgSrc;
-    this.imgWrap.style.display = 'block';
-
-    this.img.onerror = () => {
-      if (categoryBanner) {
-        // Usa o banner da categoria como fallback
-        this.img.src    = category.banner; // já tem /public/ no caminho
-        this.img.onerror = () => {
-          // Sem imagem disponível — oculta a área
+    if (productImgSrc) {
+      this.img.src = productImgSrc;
+      this.imgWrap.style.display = 'block';
+      this.img.onerror = () => {
+        if (categoryBanner) {
+          this.img.src = categoryBanner;
+          this.img.onerror = () => {
+            this.imgWrap.style.display = 'none';
+            this.img.onerror = null;
+          };
+        } else {
           this.imgWrap.style.display = 'none';
           this.img.onerror = null;
-        };
-      } else {
+        }
+      };
+    } else if (categoryBanner) {
+      this.img.src = categoryBanner;
+      this.imgWrap.style.display = 'block';
+      this.img.onerror = () => {
         this.imgWrap.style.display = 'none';
         this.img.onerror = null;
-      }
-    };
+      };
+    } else {
+      this.imgWrap.style.display = 'none';
+    }
 
     // Preço
     let priceHtml = '';

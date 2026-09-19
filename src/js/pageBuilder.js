@@ -46,8 +46,22 @@ export function buildPages() {
           priceHtml = `<div class="book-item-price" style="font-size: 12px; font-weight: 400; color: var(--muted-2);">Consulte</div>`;
         }
 
+        // Thumbnail: foto real ou avatar em letras
+        let thumbHtml = '';
+        if (it.image) {
+          thumbHtml = `
+            <div class="book-item-thumb">
+              <img src="${it.image}" alt="${it.name}" class="book-item-thumb-img" loading="lazy"
+                onerror="this.parentElement.innerHTML='<span class=\\'book-item-avatar\\'>${it.avatar || '?'}</span>'">
+            </div>
+          `;
+        } else {
+          thumbHtml = `<div class="book-item-thumb"><span class="book-item-avatar">${it.avatar || '?'}</span></div>`;
+        }
+
         return `
           <div class="book-item" data-cat="${cat.id}" data-item="${it.id}">
+            ${thumbHtml}
             <div class="book-item-content">
               <div class="book-item-header">
                 <h3 class="book-item-name">${it.name}</h3>

@@ -5,17 +5,17 @@ export const menuData = [
     "navLabel": "Artesanais",
     "banner": "/public/assets/artesanais-DXdpwsvT.jpg",
     "items": [
-      { "id": "cheddar-mc-melt", "name": "Cheddar MC Melt", "avatar": "CM", "price": 17, "options": [], "desc": "Pão brioche, bife artesanal de boi (120g), cheddar, cebola caramelizada." },
-      { "id": "chicken-burguer", "name": "Chicken Burguer", "avatar": "CB", "price": 18, "options": [], "desc": "Pão brioche, bife artesanal de frango (120g), queijo prato, alface, tomate e molho especial." },
-      { "id": "crispy-bacon", "name": "Crispy Bacon", "avatar": "CB", "price": 21, "options": [], "desc": "Pão brioche, bife artesanal de boi (120g), mussarela, bacon caramelizado, cebola crispy e molho especial." },
-      { "id": "rei-bacon", "name": "Rei Bacon", "avatar": "RB", "price": 22, "options": [], "desc": "Pão brioche, bife artesanal de boi (120g), cheddar, bacon, muçarela, cebola caramelizada e barbecue." },
-      { "id": "chicken-especial", "name": "Chicken Especial", "avatar": "CE", "price": 23, "options": [], "desc": "Pão brioche, bife frango empanado, cheddar, alface, tomate, anel de cebola e barbecue." },
-      { "id": "cheddar-melt-duplo", "name": "Cheddar Melt Duplo", "avatar": "CM", "price": 24, "options": [], "desc": "Pão brioche, 2 bifes artesanais boi (120g), 2 fatias cheddar e cebola caramelizada." },
-      { "id": "costela-burguer", "name": "Costela Burguer", "avatar": "CB", "price": 24, "options": [], "desc": "Pão brioche, costela desfiada, bife artesanal de boi (120g), muçarela, alface, anel de cebola, barbecue." },
-      { "id": "san-melt", "name": "San Melt", "avatar": "SM", "price": 26, "options": [], "desc": "Pão brioche, bife de boi (120g), catupiry empanado, bacon, geleia de pimenta." },
-      { "id": "rib-burguer", "name": "Rib Burguer", "avatar": "RB", "price": 27, "options": [], "desc": "Pão brioche, 1 bife de boi (120g), 1 bife de costela empanada, muçarela, geleia de pimenta, barbecue." },
-      { "id": "super-rei-bacon", "name": "Super Rei Bacon", "avatar": "SR", "price": 27, "options": [], "desc": "Pão brioche, 2 bife artesanal de boi (120g), 2 fatias de cheddar, bacon, tomate, cebola caramelizada e molho especial." },
-      { "id": "pig-melt", "name": "Pig Melt", "avatar": "PM", "price": 28, "options": [], "desc": "Pão brioche, bife de lombo (150g), catupiry empanado, cheddar, tomate, alface, cebola caramelizada, barbecue." }
+      { "id": "cheddar-mc-melt", "name": "Cheddar MC Melt", "image": "/public/images/products/WhatsApp Image 2026-02-27 at 14.04.16.jpg", "avatar": "CM", "price": 17, "options": [], "desc": "Pão brioche, bife artesanal de boi (120g), cheddar, cebola caramelizada." },
+      { "id": "chicken-burguer", "name": "Chicken Burguer", "image": "/public/images/products/WhatsApp Image 2026-02-27 at 15.30.40.jpg", "avatar": "CB", "price": 18, "options": [], "desc": "Pão brioche, bife artesanal de frango (120g), queijo prato, alface, tomate e molho especial." },
+      { "id": "crispy-bacon", "name": "Crispy Bacon", "image": "/public/images/products/Captura de tela 2026-07-25 165334.png", "avatar": "CB", "price": 21, "options": [], "desc": "Pão brioche, bife artesanal de boi (120g), mussarela, bacon caramelizado, cebola crispy e molho especial." },
+      { "id": "rei-bacon", "name": "Rei Bacon", "image": "/public/images/products/WhatsApp Image 2026-02-27 at 14.04.16.jpg", "avatar": "RB", "price": 22, "options": [], "desc": "Pão brioche, bife artesanal de boi (120g), cheddar, bacon, muçarela, cebola caramelizada e barbecue." },
+      { "id": "chicken-especial", "name": "Chicken Especial", "image": "/public/images/products/WhatsApp Image 2026-02-27 at 15.30.40.jpg", "avatar": "CE", "price": 23, "options": [], "desc": "Pão brioche, bife frango empanado, cheddar, alface, tomate, anel de cebola e barbecue." },
+      { "id": "cheddar-melt-duplo", "name": "Cheddar Melt Duplo", "image": "/public/images/products/WhatsApp Image 2026-02-27 at 14.04.16.jpg", "avatar": "CM", "price": 24, "options": [], "desc": "Pão brioche, 2 bifes artesanais boi (120g), 2 fatias cheddar e cebola caramelizada." },
+      { "id": "costela-burguer", "name": "Costela Burguer", "image": "/public/images/products/Captura de tela 2026-07-25 165334.png", "avatar": "CB", "price": 24, "options": [], "desc": "Pão brioche, costela desfiada, bife artesanal de boi (120g), muçarela, alface, anel de cebola, barbecue." },
+      { "id": "san-melt", "name": "San Melt", "image": "/public/images/products/WhatsApp Image 2026-08-01 at 11.27.11.jpg", "avatar": "SM", "price": 26, "options": [], "desc": "Pão brioche, bife de boi (120g), catupiry empanado, bacon, geleia de pimenta." },
+      { "id": "rib-burguer", "name": "Rib Burguer", "image": "/public/images/products/Captura de tela 2026-07-25 165334.png", "avatar": "RB", "price": 27, "options": [], "desc": "Pão brioche, 1 bife de boi (120g), 1 bife de costela empanada, muçarela, geleia de pimenta, barbecue." },
+      { "id": "super-rei-bacon", "name": "Super Rei Bacon", "image": "/public/images/products/WhatsApp Image 2026-02-27 at 14.04.16.jpg", "avatar": "SR", "price": 27, "options": [], "desc": "Pão brioche, 2 bife artesanal de boi (120g), 2 fatias de cheddar, bacon, tomate, cebola caramelizada e molho especial." },
+      { "id": "pig-melt", "name": "Pig Melt", "image": "/public/images/products/WhatsApp Image 2026-08-01 at 11.27.11.jpg", "avatar": "PM", "price": 28, "options": [], "desc": "Pão brioche, bife de lombo (150g), catupiry empanado, cheddar, tomate, alface, cebola caramelizada, barbecue." }
     ]
   },
   {
@@ -24,17 +24,17 @@ export const menuData = [
     "navLabel": "Tradicionais",
     "banner": "/public/assets/tradicionais-BgCtH9KS.jpg",
     "items": [
-      { "id": "misto", "name": "Misto", "avatar": "M", "price": 11, "options": [], "desc": "Pão de forma, presunto e muçarela." },
-      { "id": "hamburguer", "name": "Hambúrguer", "avatar": "H", "price": 13, "options": [], "desc": "Pão brioche, bife caseiro. Acompanha alface, milho, tomate e batata." },
-      { "id": "x-burguer", "name": "X Burguer", "avatar": "XB", "price": 14, "options": [], "desc": "Pão brioche, bife caseiro, queijo. Acompanha alface, milho, tomate e batata." },
-      { "id": "bacon-burguer", "name": "Bacon Burguer", "avatar": "BB", "price": 15, "options": [], "desc": "Pão brioche, bife caseiro, bacon. Acompanha alface, milho, tomate e batata." },
-      { "id": "x-burguesunto", "name": "X Burguesunto", "avatar": "XB", "price": 17, "options": [], "desc": "Pão brioche, bife caseiro, presunto, queijo. Acompanha alface, milho, tomate e batata." },
-      { "id": "x-egg", "name": "X Egg", "avatar": "XE", "price": 17, "options": [], "desc": "Pão brioche, bife caseiro, ovo, queijo. Acompanha alface, milho, tomate e batata." },
-      { "id": "x-bacon", "name": "X Bacon", "avatar": "XB", "price": 17, "options": [], "desc": "Pão brioche, bife caseiro, queijo, bacon. Acompanha alface, milho, tomate e batata." },
-      { "id": "x-calabresa", "name": "X Calabresa", "avatar": "XC", "price": 17, "options": [], "desc": "Pão brioche, bife caseiro, calabresa, queijo. Acompanha alface, milho, tomate e batata." },
-      { "id": "americano", "name": "Americano", "avatar": "A", "price": 18, "options": [], "desc": "Pão brioche, bife caseiro, ovo, queijo, bacon. Acompanha alface, milho, tomate e batata." },
-      { "id": "franbacon", "name": "FranBacon", "avatar": "F", "price": 18, "highlight": true, "options": [], "desc": "Pão brioche, bife de frango caseiro, bacon, queijo e catupiry. Acompanha alface, milho, tomate e batata." },
-      { "id": "x-tudo", "name": "X Tudo", "avatar": "XT", "price": 21, "options": [], "desc": "Pão brioche, bife caseiro, ovo, presunto, queijo, bacon. Acompanha alface, milho, tomate e batata." }
+      { "id": "misto", "name": "Misto", "image": "/public/images/products/WhatsApp Image 2026-02-27 at 15.30.40.jpg", "avatar": "M", "price": 11, "options": [], "desc": "Pão de forma, presunto e muçarela." },
+      { "id": "hamburguer", "name": "Hambúrguer", "image": "/public/images/products/WhatsApp Image 2026-02-27 at 15.30.40.jpg", "avatar": "H", "price": 13, "options": [], "desc": "Pão brioche, bife caseiro. Acompanha alface, milho, tomate e batata." },
+      { "id": "x-burguer", "name": "X Burguer", "image": "/public/images/products/WhatsApp Image 2026-02-27 at 15.30.40.jpg", "avatar": "XB", "price": 14, "options": [], "desc": "Pão brioche, bife caseiro, queijo. Acompanha alface, milho, tomate e batata." },
+      { "id": "bacon-burguer", "name": "Bacon Burguer", "image": "/public/images/products/WhatsApp Image 2026-02-27 at 15.30.40.jpg", "avatar": "BB", "price": 15, "options": [], "desc": "Pão brioche, bife caseiro, bacon. Acompanha alface, milho, tomate e batata." },
+      { "id": "x-burguesunto", "name": "X Burguesunto", "image": "/public/images/products/WhatsApp Image 2026-02-27 at 15.30.40.jpg", "avatar": "XB", "price": 17, "options": [], "desc": "Pão brioche, bife caseiro, presunto, queijo. Acompanha alface, milho, tomate e batata." },
+      { "id": "x-egg", "name": "X Egg", "image": "/public/images/products/WhatsApp Image 2026-02-27 at 15.30.40.jpg", "avatar": "XE", "price": 17, "options": [], "desc": "Pão brioche, bife caseiro, ovo, queijo. Acompanha alface, milho, tomate e batata." },
+      { "id": "x-bacon", "name": "X Bacon", "image": "/public/images/products/WhatsApp Image 2026-02-27 at 15.30.40.jpg", "avatar": "XB", "price": 17, "options": [], "desc": "Pão brioche, bife caseiro, queijo, bacon. Acompanha alface, milho, tomate e batata." },
+      { "id": "x-calabresa", "name": "X Calabresa", "image": "/public/images/products/WhatsApp Image 2026-02-27 at 15.30.40.jpg", "avatar": "XC", "price": 17, "options": [], "desc": "Pão brioche, bife caseiro, calabresa, queijo. Acompanha alface, milho, tomate e batata." },
+      { "id": "americano", "name": "Americano", "image": "/public/images/products/WhatsApp Image 2026-02-27 at 15.30.40.jpg", "avatar": "A", "price": 18, "options": [], "desc": "Pão brioche, bife caseiro, ovo, queijo, bacon. Acompanha alface, milho, tomate e batata." },
+      { "id": "franbacon", "name": "FranBacon", "image": "/public/images/products/WhatsApp Image 2026-02-27 at 15.30.40.jpg", "avatar": "F", "price": 18, "highlight": true, "options": [], "desc": "Pão brioche, bife de frango caseiro, bacon, queijo e catupiry. Acompanha alface, milho, tomate e batata." },
+      { "id": "x-tudo", "name": "X Tudo", "image": "/public/images/products/WhatsApp Image 2026-02-27 at 15.30.40.jpg", "avatar": "XT", "price": 21, "options": [], "desc": "Pão brioche, bife caseiro, ovo, presunto, queijo, bacon. Acompanha alface, milho, tomate e batata." }
     ]
   },
   {
@@ -99,15 +99,15 @@ export const menuData = [
       { "id": "torresmo-mandioca", "name": "Torresmo c/ Mandioca", "avatar": "TM", "price": 35, "options": [], "desc": "Torresmo crocante servido com mandioca cozida." },
       { "id": "torresmo-rolo-geleia", "name": "Torresmo de Rolo c/ Geleia de Abacaxi", "avatar": "TR", "price": 35, "options": [], "desc": "Torresmo de rolo crocante servido com geleia agridoce de abacaxi." },
       { "id": "batata-cheddar-bacon-calabresa", "name": "Batata c/ Cheddar, Bacon e Calabresa", "avatar": "BC", "price": 35, "options": [], "desc": "Batatas fritas com cheddar cremoso, bacon e calabresa." },
-      { "id": "bolinho-frango", "name": "Bolinho de Frango", "avatar": "BF", "price": 40, "options": [], "desc": "Frango catupiry tempero especiais farinha Panko." },
-      { "id": "bolinho-costela", "name": "Bolinho de Costela", "avatar": "BC", "price": 45, "options": [], "desc": "Costela desfiada e catupiry." },
-      { "id": "batata-costela", "name": "Batata c/ Costela", "avatar": "BC", "price": 45, "options": [], "desc": "Batata Frita, Costela e Catupiry." },
-      { "id": "escondidinho-carne-seca", "name": "Escondidinho de Carne Seca", "avatar": "EC", "price": 55, "options": [], "desc": "Delicioso escondidinho cremoso com carne seca desfiada." },
+      { "id": "bolinho-frango", "name": "Bolinho de Frango", "image": "/public/images/products/WhatsApp Image 2026-02-27 at 15.19.17.jpg", "avatar": "BF", "price": 40, "options": [], "desc": "Frango catupiry tempero especiais farinha Panko." },
+      { "id": "bolinho-costela", "name": "Bolinho de Costela", "image": "/public/images/products/Captura de tela 2026-07-25 170726.png", "avatar": "BC", "price": 45, "options": [], "desc": "Costela desfiada e catupiry." },
+      { "id": "batata-costela", "name": "Batata c/ Costela", "image": "/public/images/products/WhatsApp Image 2026-02-27 at 15.21.07.jpg", "avatar": "BC", "price": 45, "options": [], "desc": "Batata Frita, Costela e Catupiry." },
+      { "id": "escondidinho-carne-seca", "name": "Escondidinho de Carne Seca", "image": "/public/images/products/Captura de tela 2026-07-25 170903.png", "avatar": "EC", "price": 55, "options": [], "desc": "Delicioso escondidinho cremoso com carne seca desfiada." },
       { "id": "trio-mineiro", "name": "Trio Mineiro", "avatar": "TM", "price": 55, "options": [], "desc": "Delicioso trio com o melhor da culinária mineira." },
       { "id": "file-tilapia", "name": "Filé de Tilápia", "avatar": "FT", "price": 55, "options": [], "desc": "Delicioso filé de tilápia empanado." },
-      { "id": "escondidinho-camarao", "name": "Escondidinho de Camarão", "avatar": "EC", "price": 60, "options": [], "desc": "Mandioca cremosa, camarão e muçarela." },
-      { "id": "contra-file-fritas", "name": "Contra Filé c/ Fritas", "avatar": "CF", "price": 75, "options": [], "desc": "Suculento contra filé com porção de batatas fritas." },
-      { "id": "picanha-porcao", "name": "Picanha (Porção)", "avatar": "PP", "price": 80, "options": [], "desc": "500g de picanha com farofa." },
+      { "id": "escondidinho-camarao", "name": "Escondidinho de Camarão", "image": "/public/images/products/Captura de tela 2026-07-25 170903.png", "avatar": "EC", "price": 60, "options": [], "desc": "Mandioca cremosa, camarão e muçarela." },
+      { "id": "contra-file-fritas", "name": "Contra Filé c/ Fritas", "image": "/public/images/products/Captura de tela 2026-07-25 171007.png", "avatar": "CF", "price": 75, "options": [], "desc": "Suculento contra filé com porção de batatas fritas." },
+      { "id": "picanha-porcao", "name": "Picanha (Porção)", "image": "/public/images/products/Captura de tela 2026-07-25 171007.png", "avatar": "PP", "price": 80, "options": [], "desc": "500g de picanha com farofa." },
       { "id": "file-tilapia-fritas", "name": "Filé de Tilápia c/ Fritas", "avatar": "FT", "price": 80, "options": [], "desc": "Delicioso filé de tilápia empanado acompanhado de uma porção de batatas fritas." },
       { "id": "camarao-empanado", "name": "Camarão Empanado", "avatar": "CE", "price": 85, "options": [], "desc": "400g Camarão empanado em farinha panko." }
     ]
@@ -128,9 +128,9 @@ export const menuData = [
     "navLabel": "Chapas",
     "banner": "/public/assets/chapas-Cvu1J14F.jpg",
     "items": [
-      { "id": "chapa-mista", "name": "Chapa Mista", "avatar": "CM", "price": 95, "options": [], "desc": "Frango grelhado, contra filé, calabresa e batata frita. Serve 2 a 3 pessoas.", "serves": "2 a 3 pessoas" },
-      { "id": "especial-casa-2p", "name": "Especial da Casa", "avatar": "EC", "price": 120, "options": [], "desc": "300g de picanha, 200g mandioca na manteiga, 200g de batata frita.", "serves": "2 pessoas" },
-      { "id": "especial-casa-3p", "name": "Especial da Casa", "avatar": "EC", "price": 150, "options": [], "desc": "500g de picanha, 200g mandioca na manteiga, 200g de batata frita.", "serves": "3 pessoas" }
+      { "id": "chapa-mista", "name": "Chapa Mista", "image": "/public/images/products/Captura de tela 2026-07-25 171007.png", "avatar": "CM", "price": 95, "options": [], "desc": "Frango grelhado, contra filé, calabresa e batata frita. Serve 2 a 3 pessoas.", "serves": "2 a 3 pessoas" },
+      { "id": "especial-casa-2p", "name": "Especial da Casa", "image": "/public/images/products/Captura de tela 2026-07-25 171007.png", "avatar": "EC", "price": 120, "options": [], "desc": "300g de picanha, 200g mandioca na manteiga, 200g de batata frita.", "serves": "2 pessoas" },
+      { "id": "especial-casa-3p", "name": "Especial da Casa", "image": "/public/images/products/Captura de tela 2026-07-25 171007.png", "avatar": "EC", "price": 150, "options": [], "desc": "500g de picanha, 200g mandioca na manteiga, 200g de batata frita.", "serves": "3 pessoas" }
     ]
   },
   {
